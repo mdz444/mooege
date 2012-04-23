@@ -1,5 +1,5 @@
-/*
- * Copyright (C) 2011 mooege project
+﻿/*
+ * Copyright (C) 2011 - 2012 mooege project - http://www.mooege.org
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,38 +18,37 @@
 
 using System.Text;
 
-namespace Mooege.Net.GS.Message.Definitions.Skill
+namespace Mooege.Net.GS.Message.Definitions.Player
 {
-    [Message(Opcodes.AssignSkillMessage2, Consumers.Player)]
-    public class AssignPassiveSkillMessage : GameMessage
+    [Message(Opcodes.UnlockDifficultyMessage)]
+    public class UnlockDifficultyMessage : GameMessage
     {
-        public int /* sno */ SNOSkill;
-        public int SkillIndex;
+        public int Field0;
+        public bool Field1;
 
         public override void Parse(GameBitBuffer buffer)
         {
-            SNOSkill = buffer.ReadInt(32);
-            SkillIndex = buffer.ReadInt(5);
+            Field0 = buffer.ReadInt(32);
+            Field1 = buffer.ReadBool();
         }
 
         public override void Encode(GameBitBuffer buffer)
         {
-            buffer.WriteInt(32, SNOSkill);
-            buffer.WriteInt(5, SkillIndex);
+            buffer.WriteInt(32, Field0);
+            buffer.WriteBool(Field1);
         }
 
         public override void AsText(StringBuilder b, int pad)
         {
             b.Append(' ', pad);
-            b.AppendLine("AssignSkillMessage:");
+            b.AppendLine("UnlockDifficultyMessage:");
             b.Append(' ', pad++);
             b.AppendLine("{");
-            b.Append(' ', pad); b.AppendLine("snoPower: 0x" + SNOSkill.ToString("X8"));
-            b.Append(' ', pad); b.AppendLine("Field1: 0x" + SkillIndex.ToString("X8") + " (" + SkillIndex + ")");
+            b.Append(' ', pad); b.AppendLine("Field0: 0x" + Field0.ToString("X8"));
+            b.Append(' ', pad); b.AppendLine("Field1: " + (Field1 ? "true" : "false"));
             b.Append(' ', --pad);
             b.AppendLine("}");
         }
-
 
     }
 }

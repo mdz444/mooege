@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright (C) 2011 mooege project
+ * Copyright (C) 2011 - 2012 mooege project - http://www.mooege.org
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -31,8 +31,6 @@ namespace Mooege.Core.MooNet.Accounts
     {
         private static readonly Logger Logger = LogManager.CreateLogger();
 
-
-
         private static readonly Dictionary<ulong, GameAccount> GameAccounts = new Dictionary<ulong, GameAccount>();
         public static List<GameAccount> GameAccountsList { get { return GameAccounts.Values.ToList(); } }
 
@@ -58,7 +56,7 @@ namespace Mooege.Core.MooNet.Accounts
 
         public static ulong GetNextAvailablePersistentId()
         {
-            var cmd = new SQLiteCommand("SELECT max(id) from gameaccounts", DBManager.Connection);
+            var cmd = new SQLiteCommand("SELECT MAX(id) FROM gameaccounts", DBManager.Connection);
             try
             {
                 return Convert.ToUInt64(cmd.ExecuteScalar());
@@ -76,7 +74,7 @@ namespace Mooege.Core.MooNet.Accounts
 
         private static void LoadGameAccounts()
         {
-            var query = "SELECT * from gameaccounts";
+            var query = "SELECT * FROM gameaccounts";
             var cmd = new SQLiteCommand(query, DBManager.Connection);
             var reader = cmd.ExecuteReader();
 
@@ -84,14 +82,15 @@ namespace Mooege.Core.MooNet.Accounts
 
             while (reader.Read())
             {
-                var gameAccountId = (ulong)reader.GetInt64(0);
-                var accountId = (ulong)reader.GetInt64(1);
+                var gameAccountId = Convert.ToUInt64(reader["id"]);
+                var accountId = Convert.ToUInt64(reader["accountid"]);
                 var gameAccount = new GameAccount(gameAccountId, accountId);
 
                 #region Populate GameAccount Data
 
                 var banner = (byte[])reader.GetValue(2);
                 gameAccount.BannerConfiguration = D3.Account.BannerConfiguration.ParseFrom(banner);
+                gameAccount.LastOnlineField.Value = Convert.ToInt64(reader["LastOnline"]);
                 GameAccounts.Add(gameAccountId, gameAccount);
 
                 #endregion

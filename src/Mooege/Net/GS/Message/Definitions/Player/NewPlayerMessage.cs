@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011 mooege project
+ * Copyright (C) 2011 - 2012 mooege project - http://www.mooege.org
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -46,7 +46,7 @@ namespace Mooege.Net.GS.Message.Definitions.Player
             ToonId.Parse(buffer);
             GameAccountId = new EntityId();
             GameAccountId.Parse(buffer);
-            ToonName = buffer.ReadCharArray(101);
+            ToonName = buffer.ReadCharArray(49);
             Field3 = buffer.ReadInt(5) + (-1);
             Field4 = buffer.ReadInt(3) + (-1);
             snoActorPortrait = buffer.ReadInt(32);
@@ -63,7 +63,7 @@ namespace Mooege.Net.GS.Message.Definitions.Player
             buffer.WriteInt(3, PlayerIndex);
             ToonId.Encode(buffer);
             GameAccountId.Encode(buffer);
-            buffer.WriteCharArray(101, ToonName);
+            buffer.WriteCharArray(49, ToonName);
             buffer.WriteInt(5, Field3 - (-1));
             buffer.WriteInt(3, Field4 - (-1));
             buffer.WriteInt(32, snoActorPortrait);

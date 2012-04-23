@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright (C) 2011 mooege project
+ * Copyright (C) 2011 - 2012 mooege project - http://www.mooege.org
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,7 +17,6 @@
  */
 
 using System.Drawing;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using Mooege.Common.Helpers.Concurrency;
@@ -40,6 +39,7 @@ namespace Mooege.Core.GS.Map.Debug
         public ConcurrentList<Player> Players { get; private set; }
         public ConcurrentList<Monster> Monsters { get; private set; }
         public ConcurrentList<NPC> NPCs { get; private set; }
+        public ConcurrentList<Portal> Portals { get; private set; }
 
         public bool DrawMasterScenes;
         public bool DrawSubScenes;
@@ -48,6 +48,7 @@ namespace Mooege.Core.GS.Map.Debug
         public bool DrawMonsters;
         public bool DrawNPCs;
         public bool DrawPlayers;
+        public bool DrawPortals = true;
         public bool PrintSceneLabels;
         public bool FillCells;
         public bool DrawPlayerProximityCircle;
@@ -75,7 +76,8 @@ namespace Mooege.Core.GS.Map.Debug
             this.WalkableCells = new ConcurrentList<Rect>();
             this.Players = new ConcurrentList<Player>();
             this.Monsters = new ConcurrentList<Monster>();
-            this.NPCs = new ConcurrentList<NPC>();           
+            this.NPCs = new ConcurrentList<NPC>();
+            this.Portals = new ConcurrentList<Portal>();
         }
 
         #region update
@@ -116,6 +118,8 @@ namespace Mooege.Core.GS.Map.Debug
                     this.NPCs.Add(actor as NPC);
                 else if (actor is Monster)
                     this.Monsters.Add(actor as Monster);
+                else if (actor is Portal)
+                    this.Portals.Add(actor as Portal);
             });
         }
 
@@ -242,6 +246,14 @@ namespace Mooege.Core.GS.Map.Debug
                 foreach (var player in this.Players)
                 {
                     this.DrawActor(player, graphics, Brushes.DarkViolet, 7);
+                }
+            }
+
+            if (this.DrawPortals)
+            {
+                foreach (var portal in this.Portals)
+                {
+                    this.DrawActor(portal, graphics, Brushes.Azure, 10);
                 }
             }
 

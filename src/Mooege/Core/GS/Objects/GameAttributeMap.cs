@@ -1,5 +1,5 @@
 ﻿﻿/*
- * Copyright (C) 2011 mooege project
+ * Copyright (C) 2011 - 2012 mooege project - http://www.mooege.org
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,16 +19,18 @@
 using System;
 using System.Collections.Generic;
 using Mooege.Net.GS.Message.Definitions.Attribute;
-using Mooege.Core.GS.Objects;
 using System.Linq;
 using Mooege.Net.GS.Message;
 using Mooege.Net.GS;
+using Mooege.Common.Logging;
 
 namespace Mooege.Core.GS.Objects
 {
     public class GameAttributeMap
     {
-        struct KeyId
+        private static Logger Logger = LogManager.CreateLogger();
+
+        private struct KeyId
         {
             // was using Id | (Key << 12) like Blizz at first but im not 100% sure it will work... /cm
             public int Id;
@@ -64,8 +66,6 @@ namespace Mooege.Core.GS.Objects
         {
             _parent = parent;
         }
-
-
 
         #region message broadcasting
 
@@ -288,7 +288,15 @@ namespace Mooege.Core.GS.Objects
             return messageList;
         }
 
-        GameAttributeValue GetAttributeValue(GameAttribute attribute, int? key)
+        private GameAttributeValue GetAttributeValue(GameAttribute attribute, int? key)
+        {
+            if (attribute.ScriptFunc != null)
+                return attribute.ScriptFunc(this, key);
+            else
+                return RawGetAttributeValue(attribute, key);
+        }
+
+        private GameAttributeValue RawGetAttributeValue(GameAttribute attribute, int? key)
         {
             KeyId keyid;
             keyid.Id = attribute.Id;
@@ -300,14 +308,15 @@ namespace Mooege.Core.GS.Objects
             return attribute._DefaultValue;
         }
 
-        void SetAttributeValue(GameAttribute attribute, int? key, GameAttributeValue value)
+        private void SetAttributeValue(GameAttribute attribute, int? key, GameAttributeValue value)
         {
-            KeyId keyid;
-            keyid.Id = attribute.Id;
-            keyid.Key = key;
-
-            if (!_changedAttributes.Contains(keyid))
-                _changedAttributes.Add(keyid);
+            // error if scripted attribute and is not settable
+            if (attribute.ScriptFunc != null && !attribute.ScriptedAndSettable)
+            {
+                var frame = new System.Diagnostics.StackFrame(2, true);
+                Logger.Error("illegal value assignment for GameAttribute.{0} attempted at {1}:{2}",
+                    attribute.Name, frame.GetFileName(), frame.GetFileLineNumber());
+            }
 
             if (attribute.EncodingType == GameAttributeEncoding.IntMinMax)
             {
@@ -319,7 +328,40 @@ namespace Mooege.Core.GS.Objects
                 if (value.ValueF < GameAttribute.Float16Min || value.ValueF > GameAttribute.Float16Max)
                     throw new ArgumentOutOfRangeException("GameAttribute." + attribute.Name.Replace(' ', '_'), "Min: " + GameAttribute.Float16Min  + " Max " + GameAttribute.Float16Max + " Tried to set: " + value.ValueF);
             }
+
+            RawSetAttributeValue(attribute, key, value);
+        }
+
+        private void RawSetAttributeValue(GameAttribute attribute, int? key, GameAttributeValue value)
+        {
+            KeyId keyid;
+            keyid.Id = attribute.Id;
+            keyid.Key = key;
+
             _attributeValues[keyid] = value;
+
+            if (!_changedAttributes.Contains(keyid))
+                _changedAttributes.Add(keyid);
+
+            // mark dependant attributes as changed
+            if (attribute.Dependents != null)
+            {
+                foreach (var dependent in attribute.Dependents)
+                {
+                    int? usekey;
+
+                    if (dependent.IsManualDependency)
+                        usekey = dependent.Key;
+                    else
+                        usekey = dependent.UsesExplicitKey ? null : key;
+
+                    if (dependent.IsManualDependency || dependent.UsesExplicitKey == false || dependent.Key == key)
+                    {
+                        // TODO: always update dependent values for now, but eventually make this lazy
+                        RawSetAttributeValue(dependent.Attribute, usekey, dependent.Attribute.ScriptFunc(this, usekey));
+                    }
+                }
+            }
         }
 
         public int this[GameAttributeI attribute]
@@ -328,7 +370,7 @@ namespace Mooege.Core.GS.Objects
             set { SetAttributeValue(attribute, null, new GameAttributeValue(value)); }
         }
 
-        public int this[GameAttributeI attribute, int key]
+        public int this[GameAttributeI attribute, int? key]
         {
             get { return GetAttributeValue(attribute, key).Value; }
             set { SetAttributeValue(attribute, key, new GameAttributeValue(value)); }
@@ -340,7 +382,7 @@ namespace Mooege.Core.GS.Objects
             set { SetAttributeValue(attribute, null, new GameAttributeValue(value)); }
         }
 
-        public float this[GameAttributeF attribute, int key]
+        public float this[GameAttributeF attribute, int? key]
         {
             get { return GetAttributeValue(attribute, key).ValueF; }
             set { SetAttributeValue(attribute, key, new GameAttributeValue(value)); }
@@ -352,10 +394,29 @@ namespace Mooege.Core.GS.Objects
             set { SetAttributeValue(attribute, null, new GameAttributeValue(value ? 1 : 0)); }
         }
 
-        public bool this[GameAttributeB attribute, int key]
+        public bool this[GameAttributeB attribute, int? key]
         {
             get { return GetAttributeValue(attribute, key).Value != 0; }
             set { SetAttributeValue(attribute, key, new GameAttributeValue(value ? 1 : 0)); }
         }
+
+        #region Raw attribute accessors
+        // NOTE: these are public, but only exist to be used by GameAttribute scripts.
+        // They provide raw attribute access of values, no scripts will be triggered when used.
+        public int _RawGetAttribute(GameAttributeI attribute, int? key)
+        {
+            return RawGetAttributeValue(attribute, key).Value;
+        }
+
+        public float _RawGetAttribute(GameAttributeF attribute, int? key)
+        {
+            return RawGetAttributeValue(attribute, key).ValueF;
+        }
+
+        public bool _RawGetAttribute(GameAttributeB attribute, int? key)
+        {
+            return RawGetAttributeValue(attribute, key).Value != 0;
+        }
+        #endregion
     }
 }

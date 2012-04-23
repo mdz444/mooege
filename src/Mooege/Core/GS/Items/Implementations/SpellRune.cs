@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright (C) 2011 mooege project
+ * Copyright (C) 2011 - 2012 mooege project - http://www.mooege.org
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,7 +25,7 @@ using Mooege.Core.GS.Map;
 
 namespace Mooege.Core.GS.Items.Implementations
 {
-    [HandledType("SpellRune")]
+    //[HandledType("SpellRune")]
     public class SpellRune : Item
     {
         // type of rune is in Name
@@ -61,7 +61,7 @@ namespace Mooege.Core.GS.Items.Implementations
                         PowerSNOId = Skills.Skills.Wizard.AllActiveSkillsList.ElementAt(RandomHelper.Next(0, Mooege.Core.GS.Skills.Skills.Wizard.AllActiveSkillsList.Count));
                         break;
                 }
-                this.Attributes[GameAttribute.Rune_Attuned_Power] = PowerSNOId;
+                //this.Attributes[GameAttribute.Rune_Attuned_Power] = PowerSNOId;
             }
         }
 
@@ -90,7 +90,7 @@ namespace Mooege.Core.GS.Items.Implementations
                     PowerSNOId = Mooege.Core.GS.Skills.Skills.Wizard.AllActiveSkillsList.ElementAt(RandomHelper.Next(0, Mooege.Core.GS.Skills.Skills.Wizard.AllActiveSkillsList.Count));
                     break;
             }
-            this.Attributes[GameAttribute.Rune_Attuned_Power] = PowerSNOId;
+            //this.Attributes[GameAttribute.Rune_Attuned_Power] = PowerSNOId;
         }
     }
 }

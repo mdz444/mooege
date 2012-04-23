@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright (C) 2011 mooege project
+ * Copyright (C) 2011 - 2012 mooege project - http://www.mooege.org
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,6 @@
 
 using System;
 using System.Collections.Generic;
-using Mooege.Common;
 using Mooege.Common.Logging;
 using Mooege.Net.MooNet;
 
@@ -172,14 +171,17 @@ namespace Mooege.Core.MooNet.Objects
 
             // Make the RPC call to all online game accounts
             //TODO: Split notifications per game type
-            foreach (var gameClient in client.Account.GameAccounts)
-            {
-                if (gameClient.Value.IsOnline)
-                {
-                    gameClient.Value.LoggedInClient.MakeTargetedRPC(this, () =>
-                        bnet.protocol.channel.ChannelSubscriber.CreateStub(gameClient.Value.LoggedInClient).NotifyAdd(null, builder.Build(), callback => { }));
-                }
-            }
+            client.MakeTargetedRPC(this, () =>
+                bnet.protocol.channel.ChannelSubscriber.CreateStub(client).NotifyAdd(null, builder.Build(), callback => { }));
+
+            //foreach (var gameClient in client.Account.GameAccounts)
+            //{
+            //    if (gameClient.Value.IsOnline)
+            //    {
+            //        gameClient.Value.LoggedInClient.MakeTargetedRPC(this, () =>
+            //            bnet.protocol.channel.ChannelSubscriber.CreateStub(gameClient.Value.LoggedInClient).NotifyAdd(null, builder.Build(), callback => { }));
+            //    }
+            //}
         }
 
         //This is done on a client by client mapping of notifications/variables per object that need to be updated

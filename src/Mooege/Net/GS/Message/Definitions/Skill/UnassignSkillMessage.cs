@@ -1,5 +1,5 @@
-/*
- * Copyright (C) 2011 mooege project
+﻿/*
+ * Copyright (C) 2011 - 2012 mooege project - http://www.mooege.org
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,34 +18,30 @@
 
 using System.Text;
 
-namespace Mooege.Net.GS.Message.Definitions.Misc
+namespace Mooege.Net.GS.Message.Definitions.Skill
 {
-    [Message(Opcodes.SocketSpellMessage, Consumers.Player)]
-    public class SocketSpellMessage : GameMessage
+    [Message( Opcodes.UnassignSkillMessage)]
+    public class UnassignSkillMessage : GameMessage
     {
-        public int RuneDynamicId;
-        public int PowerSNOId;
+        public int SkillIndex;
 
         public override void Parse(GameBitBuffer buffer)
         {
-            RuneDynamicId = buffer.ReadInt(32);
-            PowerSNOId = buffer.ReadInt(32);
+            SkillIndex = buffer.ReadInt(3);
         }
 
         public override void Encode(GameBitBuffer buffer)
         {
-            buffer.WriteInt(32, RuneDynamicId);
-            buffer.WriteInt(32, PowerSNOId);
+            buffer.WriteInt(5, SkillIndex);
         }
 
         public override void AsText(StringBuilder b, int pad)
         {
             b.Append(' ', pad);
-            b.AppendLine("SocketSpellMessage:");
+            b.AppendLine("UnassignSkillMessage:");
             b.Append(' ', pad++);
             b.AppendLine("{");
-            b.Append(' ', pad); b.AppendLine("RuneDynamicId: 0x" + RuneDynamicId.ToString("X8") + " (" + RuneDynamicId + ")");
-            b.Append(' ', pad); b.AppendLine("PowerSNOId: 0x" + PowerSNOId.ToString("X8") + " (" + PowerSNOId + ")");
+            b.Append(' ', pad); b.AppendLine("SkillIndex: 0x" + SkillIndex.ToString("X8") + " (" + SkillIndex + ")");
             b.Append(' ', --pad);
             b.AppendLine("}");
         }

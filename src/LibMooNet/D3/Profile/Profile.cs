@@ -26,6 +26,8 @@ namespace D3.Profile {
     internal static pb::FieldAccess.FieldAccessorTable<global::D3.Profile.SkillsWithRunes, global::D3.Profile.SkillsWithRunes.Builder> internal__static_D3_Profile_SkillsWithRunes__FieldAccessorTable;
     internal static pbd::MessageDescriptor internal__static_D3_Profile_PassiveSkills__Descriptor;
     internal static pb::FieldAccess.FieldAccessorTable<global::D3.Profile.PassiveSkills, global::D3.Profile.PassiveSkills.Builder> internal__static_D3_Profile_PassiveSkills__FieldAccessorTable;
+    internal static pbd::MessageDescriptor internal__static_D3_Profile_KillerInfo__Descriptor;
+    internal static pb::FieldAccess.FieldAccessorTable<global::D3.Profile.KillerInfo, global::D3.Profile.KillerInfo.Builder> internal__static_D3_Profile_KillerInfo__FieldAccessorTable;
     internal static pbd::MessageDescriptor internal__static_D3_Profile_HeroProfile__Descriptor;
     internal static pb::FieldAccess.FieldAccessorTable<global::D3.Profile.HeroProfile, global::D3.Profile.HeroProfile.Builder> internal__static_D3_Profile_HeroProfile__FieldAccessorTable;
     internal static pbd::MessageDescriptor internal__static_D3_Profile_HeroProfileList__Descriptor;
@@ -45,31 +47,31 @@ namespace D3.Profile {
           "emVyLnByb3RvGgtJdGVtcy5wcm90bxoTT25saW5lU2VydmljZS5wcm90bxoO" + 
           "R0JIYW5kbGUucHJvdG8iWQoJQ2xhc3NJbmZvEhMKCHBsYXl0aW1lGAEgASgE" + 
           "OgEwEhgKDWhpZ2hlc3RfbGV2ZWwYAiABKA06ATASHQoSaGlnaGVzdF9kaWZm" + 
-          "aWN1bHR5GAMgASgNOgEwIjQKDVNraWxsV2l0aFJ1bmUSEQoFc2tpbGwYASAC" + 
-          "KA86Ai0xEhAKBHJ1bmUYAiABKA86Ai0xIjsKD1NraWxsc1dpdGhSdW5lcxIo" + 
-          "CgVydW5lcxgBIAMoCzIZLkQzLlByb2ZpbGUuU2tpbGxXaXRoUnVuZSIjCg1Q" + 
-          "YXNzaXZlU2tpbGxzEhIKCnNub190cmFpdHMYASADKA8i0gYKC0hlcm9Qcm9m" + 
-          "aWxlEhcKD21vbnN0ZXJzX2tpbGxlZBgBIAEoBBIVCg1lbGl0ZXNfa2lsbGVk" + 
-          "GAIgASgEEhYKDmdvbGRfY29sbGVjdGVkGAMgASgEEhUKDWhpZ2hlc3RfbGV2" + 
-          "ZWwYBCABKA0SGgoSaGlnaGVzdF9kaWZmaWN1bHR5GAUgASgNEhMKC2NyZWF0" + 
-          "ZV90aW1lGAYgASgNEhcKCGhhcmRjb3JlGAcgASgIOgVmYWxzZRIOCgZhdHRh" + 
-          "Y2sYCCABKA0SEQoJcHJlY2lzaW9uGAkgASgNEg8KB2RlZmVuc2UYCiABKA0S" + 
-          "EAoIc3RyZW5ndGgYHyABKA0SEQoJZGV4dGVyaXR5GCAgASgNEhQKDGludGVs" + 
-          "bGlnZW5jZRghIAEoDRIQCgh2aXRhbGl0eRgLIAEoDRINCgVhcm1vchgMIAEo" + 
-          "DRILCgNkcHMYDSABKAISFQoNcmVzaXN0X2FyY2FuZRgOIAEoDRITCgtyZXNp" + 
-          "c3RfZmlyZRgPIAEoDRIYChByZXNpc3RfbGlnaHRuaW5nGBAgASgNEhUKDXJl" + 
-          "c2lzdF9wb2lzb24YESABKA0SEwoLcmVzaXN0X2NvbGQYEiABKA0SJQoJZXF1" + 
-          "aXBtZW50GBMgASgLMhIuRDMuSXRlbXMuSXRlbUxpc3QSNgoRc25vX2FjdGl2" + 
-          "ZV9za2lsbHMYFCABKAsyGy5EMy5Qcm9maWxlLlNraWxsc1dpdGhSdW5lcxIt" + 
-          "Cgpzbm9fdHJhaXRzGBUgASgLMhkuRDMuUHJvZmlsZS5QYXNzaXZlU2tpbGxz" + 
-          "EhIKCmRlYXRoX3RpbWUYFiABKA0SJgoGa2lsbGVyGBcgASgLMhYuRDMuR2Ft" + 
-          "ZUJhbGFuY2UuSGFuZGxlEi0KDWtpbGxfbG9jYXRpb24YGCABKAsyFi5EMy5H" + 
-          "YW1lQmFsYW5jZS5IYW5kbGUSDwoHZXBpdGFwaBgZIAEoCRIrCgdoZXJvX2lk" + 
-          "GBogASgLMhouRDMuT25saW5lU2VydmljZS5FbnRpdHlJZBIXCg9kYW1hZ2Vf" + 
-          "aW5jcmVhc2UYGyABKAISEwoLY3JpdF9jaGFuY2UYHCABKAISGAoQZGFtYWdl" + 
-          "X3JlZHVjdGlvbhgdIAEoAhIMCgRsaWZlGB4gASgNIjkKD0hlcm9Qcm9maWxl" + 
+          "aWN1bHR5GAMgASgNOgEwIjkKDVNraWxsV2l0aFJ1bmUSEQoFc2tpbGwYASAC" + 
+          "KA86Ai0xEhUKCXJ1bmVfdHlwZRgCIAEoEToCLTEiOwoPU2tpbGxzV2l0aFJ1" + 
+          "bmVzEigKBXJ1bmVzGAEgAygLMhkuRDMuUHJvZmlsZS5Ta2lsbFdpdGhSdW5l" + 
+          "IiMKDVBhc3NpdmVTa2lsbHMSEgoKc25vX3RyYWl0cxgBIAMoDyJNCgpLaWxs" + 
+          "ZXJJbmZvEhYKCnNub19raWxsZXIYASABKAU6Ai0xEg4KBnJhcml0eRgCIAEo" + 
+          "DRIXCg9yYXJlX25hbWVfZ2JpZHMYAyADKAUi/gUKC0hlcm9Qcm9maWxlEhcK" + 
+          "D21vbnN0ZXJzX2tpbGxlZBgBIAEoBBIVCg1lbGl0ZXNfa2lsbGVkGAIgASgE" + 
+          "EhYKDmdvbGRfY29sbGVjdGVkGAMgASgEEhUKDWhpZ2hlc3RfbGV2ZWwYBCAB" + 
+          "KA0SGgoSaGlnaGVzdF9kaWZmaWN1bHR5GAUgASgNEhMKC2NyZWF0ZV90aW1l" + 
+          "GAYgASgNEhcKCGhhcmRjb3JlGAcgASgIOgVmYWxzZRIQCghzdHJlbmd0aBgI" + 
+          "IAEoDRIRCglkZXh0ZXJpdHkYCSABKA0SFAoMaW50ZWxsaWdlbmNlGAogASgN" + 
+          "EhAKCHZpdGFsaXR5GAsgASgNEg0KBWFybW9yGAwgASgNEgsKA2RwcxgNIAEo" + 
+          "AhIVCg1yZXNpc3RfYXJjYW5lGA4gASgNEhMKC3Jlc2lzdF9maXJlGA8gASgN" + 
+          "EhgKEHJlc2lzdF9saWdodG5pbmcYECABKA0SFQoNcmVzaXN0X3BvaXNvbhgR" + 
+          "IAEoDRITCgtyZXNpc3RfY29sZBgSIAEoDRIlCgllcXVpcG1lbnQYEyABKAsy" + 
+          "Ei5EMy5JdGVtcy5JdGVtTGlzdBI2ChFzbm9fYWN0aXZlX3NraWxscxgUIAEo" + 
+          "CzIbLkQzLlByb2ZpbGUuU2tpbGxzV2l0aFJ1bmVzEi0KCnNub190cmFpdHMY" + 
+          "FSABKAsyGS5EMy5Qcm9maWxlLlBhc3NpdmVTa2lsbHMSEgoKZGVhdGhfdGlt" + 
+          "ZRgWIAEoDRIrCgtraWxsZXJfaW5mbxgXIAEoCzIWLkQzLlByb2ZpbGUuS2ls" + 
+          "bGVySW5mbxIZChFzbm9fa2lsbF9sb2NhdGlvbhgYIAEoDRIrCgdoZXJvX2lk" + 
+          "GBsgASgLMhouRDMuT25saW5lU2VydmljZS5FbnRpdHlJZBIXCg9kYW1hZ2Vf" + 
+          "aW5jcmVhc2UYHCABKAISEwoLY3JpdF9jaGFuY2UYHSABKAISGAoQZGFtYWdl" + 
+          "X3JlZHVjdGlvbhgeIAEoAhIMCgRsaWZlGB8gASgNIjkKD0hlcm9Qcm9maWxl" + 
           "TGlzdBImCgVoZXJvcxgBIAMoCzIXLkQzLlByb2ZpbGUuSGVyb1Byb2ZpbGUi" + 
-          "uAUKDkFjY291bnRQcm9maWxlEhoKEmhpZ2hlc3RfZGlmZmljdWx0eRgBIAEo" + 
+          "twQKDkFjY291bnRQcm9maWxlEhoKEmhpZ2hlc3RfZGlmZmljdWx0eRgBIAEo" + 
           "DRIhChloaWdoZXN0X2Jvc3NfZGlmZmljdWx0eV8xGAIgASgNEiEKGWhpZ2hl" + 
           "c3RfYm9zc19kaWZmaWN1bHR5XzIYAyABKA0SIQoZaGlnaGVzdF9ib3NzX2Rp" + 
           "ZmZpY3VsdHlfMxgEIAEoDRIhChloaWdoZXN0X2Jvc3NfZGlmZmljdWx0eV80" + 
@@ -81,10 +83,7 @@ namespace D3.Profile {
           "ASgLMhUuRDMuUHJvZmlsZS5DbGFzc0luZm8SKQoKY2xhc3NfbW9uaxgNIAEo" + 
           "CzIVLkQzLlByb2ZpbGUuQ2xhc3NJbmZvEjAKEWNsYXNzX3dpdGNoZG9jdG9y" + 
           "GA4gASgLMhUuRDMuUHJvZmlsZS5DbGFzc0luZm8SKwoMY2xhc3Nfd2l6YXJk" + 
-          "GA8gASgLMhUuRDMuUHJvZmlsZS5DbGFzc0luZm8SKQohZGVwcmVjYXRlZF9h" + 
-          "Y2hpZXZlbWVudF9zaG93Y2FzZV8wGBAgASgEEikKIWRlcHJlY2F0ZWRfYWNo" + 
-          "aWV2ZW1lbnRfc2hvd2Nhc2VfMRgRIAEoBBIpCiFkZXByZWNhdGVkX2FjaGll" + 
-          "dmVtZW50X3Nob3djYXNlXzIYEiABKAQ=");
+          "GA8gASgLMhUuRDMuUHJvZmlsZS5DbGFzc0luZm8=");
       pbd::FileDescriptor.InternalDescriptorAssigner assigner = delegate(pbd::FileDescriptor root) {
         descriptor = root;
         internal__static_D3_Profile_ClassInfo__Descriptor = Descriptor.MessageTypes[0];
@@ -94,7 +93,7 @@ namespace D3.Profile {
         internal__static_D3_Profile_SkillWithRune__Descriptor = Descriptor.MessageTypes[1];
         internal__static_D3_Profile_SkillWithRune__FieldAccessorTable = 
             new pb::FieldAccess.FieldAccessorTable<global::D3.Profile.SkillWithRune, global::D3.Profile.SkillWithRune.Builder>(internal__static_D3_Profile_SkillWithRune__Descriptor,
-                new string[] { "Skill", "Rune", });
+                new string[] { "Skill", "RuneType", });
         internal__static_D3_Profile_SkillsWithRunes__Descriptor = Descriptor.MessageTypes[2];
         internal__static_D3_Profile_SkillsWithRunes__FieldAccessorTable = 
             new pb::FieldAccess.FieldAccessorTable<global::D3.Profile.SkillsWithRunes, global::D3.Profile.SkillsWithRunes.Builder>(internal__static_D3_Profile_SkillsWithRunes__Descriptor,
@@ -103,18 +102,22 @@ namespace D3.Profile {
         internal__static_D3_Profile_PassiveSkills__FieldAccessorTable = 
             new pb::FieldAccess.FieldAccessorTable<global::D3.Profile.PassiveSkills, global::D3.Profile.PassiveSkills.Builder>(internal__static_D3_Profile_PassiveSkills__Descriptor,
                 new string[] { "SnoTraits", });
-        internal__static_D3_Profile_HeroProfile__Descriptor = Descriptor.MessageTypes[4];
+        internal__static_D3_Profile_KillerInfo__Descriptor = Descriptor.MessageTypes[4];
+        internal__static_D3_Profile_KillerInfo__FieldAccessorTable = 
+            new pb::FieldAccess.FieldAccessorTable<global::D3.Profile.KillerInfo, global::D3.Profile.KillerInfo.Builder>(internal__static_D3_Profile_KillerInfo__Descriptor,
+                new string[] { "SnoKiller", "Rarity", "RareNameGbids", });
+        internal__static_D3_Profile_HeroProfile__Descriptor = Descriptor.MessageTypes[5];
         internal__static_D3_Profile_HeroProfile__FieldAccessorTable = 
             new pb::FieldAccess.FieldAccessorTable<global::D3.Profile.HeroProfile, global::D3.Profile.HeroProfile.Builder>(internal__static_D3_Profile_HeroProfile__Descriptor,
-                new string[] { "MonstersKilled", "ElitesKilled", "GoldCollected", "HighestLevel", "HighestDifficulty", "CreateTime", "Hardcore", "Attack", "Precision", "Defense", "Strength", "Dexterity", "Intelligence", "Vitality", "Armor", "Dps", "ResistArcane", "ResistFire", "ResistLightning", "ResistPoison", "ResistCold", "Equipment", "SnoActiveSkills", "SnoTraits", "DeathTime", "Killer", "KillLocation", "Epitaph", "HeroId", "DamageIncrease", "CritChance", "DamageReduction", "Life", });
-        internal__static_D3_Profile_HeroProfileList__Descriptor = Descriptor.MessageTypes[5];
+                new string[] { "MonstersKilled", "ElitesKilled", "GoldCollected", "HighestLevel", "HighestDifficulty", "CreateTime", "Hardcore", "Strength", "Dexterity", "Intelligence", "Vitality", "Armor", "Dps", "ResistArcane", "ResistFire", "ResistLightning", "ResistPoison", "ResistCold", "Equipment", "SnoActiveSkills", "SnoTraits", "DeathTime", "KillerInfo", "SnoKillLocation", "HeroId", "DamageIncrease", "CritChance", "DamageReduction", "Life", });
+        internal__static_D3_Profile_HeroProfileList__Descriptor = Descriptor.MessageTypes[6];
         internal__static_D3_Profile_HeroProfileList__FieldAccessorTable = 
             new pb::FieldAccess.FieldAccessorTable<global::D3.Profile.HeroProfileList, global::D3.Profile.HeroProfileList.Builder>(internal__static_D3_Profile_HeroProfileList__Descriptor,
                 new string[] { "Heros", });
-        internal__static_D3_Profile_AccountProfile__Descriptor = Descriptor.MessageTypes[6];
+        internal__static_D3_Profile_AccountProfile__Descriptor = Descriptor.MessageTypes[7];
         internal__static_D3_Profile_AccountProfile__FieldAccessorTable = 
             new pb::FieldAccess.FieldAccessorTable<global::D3.Profile.AccountProfile, global::D3.Profile.AccountProfile.Builder>(internal__static_D3_Profile_AccountProfile__Descriptor,
-                new string[] { "HighestDifficulty", "HighestBossDifficulty1", "HighestBossDifficulty2", "HighestBossDifficulty3", "HighestBossDifficulty4", "MonstersKilled", "ElitesKilled", "GoldCollected", "HighestHardcoreLevel", "HardcoreMonstersKilled", "ClassBarbarian", "ClassDemonhunter", "ClassMonk", "ClassWitchdoctor", "ClassWizard", "DeprecatedAchievementShowcase0", "DeprecatedAchievementShowcase1", "DeprecatedAchievementShowcase2", });
+                new string[] { "HighestDifficulty", "HighestBossDifficulty1", "HighestBossDifficulty2", "HighestBossDifficulty3", "HighestBossDifficulty4", "MonstersKilled", "ElitesKilled", "GoldCollected", "HighestHardcoreLevel", "HardcoreMonstersKilled", "ClassBarbarian", "ClassDemonhunter", "ClassMonk", "ClassWitchdoctor", "ClassWizard", });
         return null;
       };
       pbd::FileDescriptor.InternalBuildGeneratedFileFrom(descriptorData,
@@ -495,8 +498,8 @@ namespace D3.Profile {
   public sealed partial class SkillWithRune : pb::GeneratedMessage<SkillWithRune, SkillWithRune.Builder> {
     private SkillWithRune() { }
     private static readonly SkillWithRune defaultInstance = new SkillWithRune().MakeReadOnly();
-    private static readonly string[] _skillWithRuneFieldNames = new string[] { "rune", "skill" };
-    private static readonly uint[] _skillWithRuneFieldTags = new uint[] { 21, 13 };
+    private static readonly string[] _skillWithRuneFieldNames = new string[] { "rune_type", "skill" };
+    private static readonly uint[] _skillWithRuneFieldTags = new uint[] { 16, 13 };
     public static SkillWithRune DefaultInstance {
       get { return defaultInstance; }
     }
@@ -527,14 +530,14 @@ namespace D3.Profile {
       get { return skill_; }
     }
     
-    public const int RuneFieldNumber = 2;
-    private bool hasRune;
-    private int rune_ = -1;
-    public bool HasRune {
-      get { return hasRune; }
+    public const int RuneTypeFieldNumber = 2;
+    private bool hasRuneType;
+    private int runeType_ = -1;
+    public bool HasRuneType {
+      get { return hasRuneType; }
     }
-    public int Rune {
-      get { return rune_; }
+    public int RuneType {
+      get { return runeType_; }
     }
     
     public override bool IsInitialized {
@@ -550,8 +553,8 @@ namespace D3.Profile {
       if (hasSkill) {
         output.WriteSFixed32(1, field_names[1], Skill);
       }
-      if (hasRune) {
-        output.WriteSFixed32(2, field_names[0], Rune);
+      if (hasRuneType) {
+        output.WriteSInt32(2, field_names[0], RuneType);
       }
       UnknownFields.WriteTo(output);
     }
@@ -566,8 +569,8 @@ namespace D3.Profile {
         if (hasSkill) {
           size += pb::CodedOutputStream.ComputeSFixed32Size(1, Skill);
         }
-        if (hasRune) {
-          size += pb::CodedOutputStream.ComputeSFixed32Size(2, Rune);
+        if (hasRuneType) {
+          size += pb::CodedOutputStream.ComputeSInt32Size(2, RuneType);
         }
         size += UnknownFields.SerializedSize;
         memoizedSerializedSize = size;
@@ -698,8 +701,8 @@ namespace D3.Profile {
         if (other.HasSkill) {
           Skill = other.Skill;
         }
-        if (other.HasRune) {
-          Rune = other.Rune;
+        if (other.HasRuneType) {
+          RuneType = other.RuneType;
         }
         this.MergeUnknownFields(other.UnknownFields);
         return this;
@@ -748,8 +751,8 @@ namespace D3.Profile {
               result.hasSkill = input.ReadSFixed32(ref result.skill_);
               break;
             }
-            case 21: {
-              result.hasRune = input.ReadSFixed32(ref result.rune_);
+            case 16: {
+              result.hasRuneType = input.ReadSInt32(ref result.runeType_);
               break;
             }
           }
@@ -782,23 +785,23 @@ namespace D3.Profile {
         return this;
       }
       
-      public bool HasRune {
-        get { return result.hasRune; }
+      public bool HasRuneType {
+        get { return result.hasRuneType; }
       }
-      public int Rune {
-        get { return result.Rune; }
-        set { SetRune(value); }
+      public int RuneType {
+        get { return result.RuneType; }
+        set { SetRuneType(value); }
       }
-      public Builder SetRune(int value) {
+      public Builder SetRuneType(int value) {
         PrepareBuilder();
-        result.hasRune = true;
-        result.rune_ = value;
+        result.hasRuneType = true;
+        result.runeType_ = value;
         return this;
       }
-      public Builder ClearRune() {
+      public Builder ClearRuneType() {
         PrepareBuilder();
-        result.hasRune = false;
-        result.rune_ = -1;
+        result.hasRuneType = false;
+        result.runeType_ = -1;
         return this;
       }
     }
@@ -1405,11 +1408,390 @@ namespace D3.Profile {
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
   [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ProtoGen", "2.4.1.473")]
+  public sealed partial class KillerInfo : pb::GeneratedMessage<KillerInfo, KillerInfo.Builder> {
+    private KillerInfo() { }
+    private static readonly KillerInfo defaultInstance = new KillerInfo().MakeReadOnly();
+    private static readonly string[] _killerInfoFieldNames = new string[] { "rare_name_gbids", "rarity", "sno_killer" };
+    private static readonly uint[] _killerInfoFieldTags = new uint[] { 24, 16, 8 };
+    public static KillerInfo DefaultInstance {
+      get { return defaultInstance; }
+    }
+    
+    public override KillerInfo DefaultInstanceForType {
+      get { return DefaultInstance; }
+    }
+    
+    protected override KillerInfo ThisMessage {
+      get { return this; }
+    }
+    
+    public static pbd::MessageDescriptor Descriptor {
+      get { return global::D3.Profile.Profile.internal__static_D3_Profile_KillerInfo__Descriptor; }
+    }
+    
+    protected override pb::FieldAccess.FieldAccessorTable<KillerInfo, KillerInfo.Builder> InternalFieldAccessors {
+      get { return global::D3.Profile.Profile.internal__static_D3_Profile_KillerInfo__FieldAccessorTable; }
+    }
+    
+    public const int SnoKillerFieldNumber = 1;
+    private bool hasSnoKiller;
+    private int snoKiller_ = -1;
+    public bool HasSnoKiller {
+      get { return hasSnoKiller; }
+    }
+    public int SnoKiller {
+      get { return snoKiller_; }
+    }
+    
+    public const int RarityFieldNumber = 2;
+    private bool hasRarity;
+    private uint rarity_;
+    public bool HasRarity {
+      get { return hasRarity; }
+    }
+    public uint Rarity {
+      get { return rarity_; }
+    }
+    
+    public const int RareNameGbidsFieldNumber = 3;
+    private pbc::PopsicleList<int> rareNameGbids_ = new pbc::PopsicleList<int>();
+    public scg::IList<int> RareNameGbidsList {
+      get { return pbc::Lists.AsReadOnly(rareNameGbids_); }
+    }
+    public int RareNameGbidsCount {
+      get { return rareNameGbids_.Count; }
+    }
+    public int GetRareNameGbids(int index) {
+      return rareNameGbids_[index];
+    }
+    
+    public override bool IsInitialized {
+      get {
+        return true;
+      }
+    }
+    
+    public override void WriteTo(pb::ICodedOutputStream output) {
+      int size = SerializedSize;
+      string[] field_names = _killerInfoFieldNames;
+      if (hasSnoKiller) {
+        output.WriteInt32(1, field_names[2], SnoKiller);
+      }
+      if (hasRarity) {
+        output.WriteUInt32(2, field_names[1], Rarity);
+      }
+      if (rareNameGbids_.Count > 0) {
+        output.WriteInt32Array(3, field_names[0], rareNameGbids_);
+      }
+      UnknownFields.WriteTo(output);
+    }
+    
+    private int memoizedSerializedSize = -1;
+    public override int SerializedSize {
+      get {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+        
+        size = 0;
+        if (hasSnoKiller) {
+          size += pb::CodedOutputStream.ComputeInt32Size(1, SnoKiller);
+        }
+        if (hasRarity) {
+          size += pb::CodedOutputStream.ComputeUInt32Size(2, Rarity);
+        }
+        {
+          int dataSize = 0;
+          foreach (int element in RareNameGbidsList) {
+            dataSize += pb::CodedOutputStream.ComputeInt32SizeNoTag(element);
+          }
+          size += dataSize;
+          size += 1 * rareNameGbids_.Count;
+        }
+        size += UnknownFields.SerializedSize;
+        memoizedSerializedSize = size;
+        return size;
+      }
+    }
+    
+    public static KillerInfo ParseFrom(pb::ByteString data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    public static KillerInfo ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    public static KillerInfo ParseFrom(byte[] data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    public static KillerInfo ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    public static KillerInfo ParseFrom(global::System.IO.Stream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    public static KillerInfo ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    public static KillerInfo ParseDelimitedFrom(global::System.IO.Stream input) {
+      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+    }
+    public static KillerInfo ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+    }
+    public static KillerInfo ParseFrom(pb::ICodedInputStream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    public static KillerInfo ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    private KillerInfo MakeReadOnly() {
+      rareNameGbids_.MakeReadOnly();
+      return this;
+    }
+    
+    public static Builder CreateBuilder() { return new Builder(); }
+    public override Builder ToBuilder() { return CreateBuilder(this); }
+    public override Builder CreateBuilderForType() { return new Builder(); }
+    public static Builder CreateBuilder(KillerInfo prototype) {
+      return new Builder(prototype);
+    }
+    
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ProtoGen", "2.4.1.473")]
+    public sealed partial class Builder : pb::GeneratedBuilder<KillerInfo, Builder> {
+      protected override Builder ThisBuilder {
+        get { return this; }
+      }
+      public Builder() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+      }
+      internal Builder(KillerInfo cloneFrom) {
+        result = cloneFrom;
+        resultIsReadOnly = true;
+      }
+      
+      private bool resultIsReadOnly;
+      private KillerInfo result;
+      
+      private KillerInfo PrepareBuilder() {
+        if (resultIsReadOnly) {
+          KillerInfo original = result;
+          result = new KillerInfo();
+          resultIsReadOnly = false;
+          MergeFrom(original);
+        }
+        return result;
+      }
+      
+      public override bool IsInitialized {
+        get { return result.IsInitialized; }
+      }
+      
+      protected override KillerInfo MessageBeingBuilt {
+        get { return PrepareBuilder(); }
+      }
+      
+      public override Builder Clear() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+        return this;
+      }
+      
+      public override Builder Clone() {
+        if (resultIsReadOnly) {
+          return new Builder(result);
+        } else {
+          return new Builder().MergeFrom(result);
+        }
+      }
+      
+      public override pbd::MessageDescriptor DescriptorForType {
+        get { return global::D3.Profile.KillerInfo.Descriptor; }
+      }
+      
+      public override KillerInfo DefaultInstanceForType {
+        get { return global::D3.Profile.KillerInfo.DefaultInstance; }
+      }
+      
+      public override KillerInfo BuildPartial() {
+        if (resultIsReadOnly) {
+          return result;
+        }
+        resultIsReadOnly = true;
+        return result.MakeReadOnly();
+      }
+      
+      public override Builder MergeFrom(pb::IMessage other) {
+        if (other is KillerInfo) {
+          return MergeFrom((KillerInfo) other);
+        } else {
+          base.MergeFrom(other);
+          return this;
+        }
+      }
+      
+      public override Builder MergeFrom(KillerInfo other) {
+        if (other == global::D3.Profile.KillerInfo.DefaultInstance) return this;
+        PrepareBuilder();
+        if (other.HasSnoKiller) {
+          SnoKiller = other.SnoKiller;
+        }
+        if (other.HasRarity) {
+          Rarity = other.Rarity;
+        }
+        if (other.rareNameGbids_.Count != 0) {
+          result.rareNameGbids_.Add(other.rareNameGbids_);
+        }
+        this.MergeUnknownFields(other.UnknownFields);
+        return this;
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input) {
+        return MergeFrom(input, pb::ExtensionRegistry.Empty);
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+        PrepareBuilder();
+        pb::UnknownFieldSet.Builder unknownFields = null;
+        uint tag;
+        string field_name;
+        while (input.ReadTag(out tag, out field_name)) {
+          if(tag == 0 && field_name != null) {
+            int field_ordinal = global::System.Array.BinarySearch(_killerInfoFieldNames, field_name, global::System.StringComparer.Ordinal);
+            if(field_ordinal >= 0)
+              tag = _killerInfoFieldTags[field_ordinal];
+            else {
+              if (unknownFields == null) {
+                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
+              }
+              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
+              continue;
+            }
+          }
+          switch (tag) {
+            case 0: {
+              throw pb::InvalidProtocolBufferException.InvalidTag();
+            }
+            default: {
+              if (pb::WireFormat.IsEndGroupTag(tag)) {
+                if (unknownFields != null) {
+                  this.UnknownFields = unknownFields.Build();
+                }
+                return this;
+              }
+              if (unknownFields == null) {
+                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
+              }
+              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
+              break;
+            }
+            case 8: {
+              result.hasSnoKiller = input.ReadInt32(ref result.snoKiller_);
+              break;
+            }
+            case 16: {
+              result.hasRarity = input.ReadUInt32(ref result.rarity_);
+              break;
+            }
+            case 26:
+            case 24: {
+              input.ReadInt32Array(tag, field_name, result.rareNameGbids_);
+              break;
+            }
+          }
+        }
+        
+        if (unknownFields != null) {
+          this.UnknownFields = unknownFields.Build();
+        }
+        return this;
+      }
+      
+      
+      public bool HasSnoKiller {
+        get { return result.hasSnoKiller; }
+      }
+      public int SnoKiller {
+        get { return result.SnoKiller; }
+        set { SetSnoKiller(value); }
+      }
+      public Builder SetSnoKiller(int value) {
+        PrepareBuilder();
+        result.hasSnoKiller = true;
+        result.snoKiller_ = value;
+        return this;
+      }
+      public Builder ClearSnoKiller() {
+        PrepareBuilder();
+        result.hasSnoKiller = false;
+        result.snoKiller_ = -1;
+        return this;
+      }
+      
+      public bool HasRarity {
+        get { return result.hasRarity; }
+      }
+      public uint Rarity {
+        get { return result.Rarity; }
+        set { SetRarity(value); }
+      }
+      public Builder SetRarity(uint value) {
+        PrepareBuilder();
+        result.hasRarity = true;
+        result.rarity_ = value;
+        return this;
+      }
+      public Builder ClearRarity() {
+        PrepareBuilder();
+        result.hasRarity = false;
+        result.rarity_ = 0;
+        return this;
+      }
+      
+      public pbc::IPopsicleList<int> RareNameGbidsList {
+        get { return PrepareBuilder().rareNameGbids_; }
+      }
+      public int RareNameGbidsCount {
+        get { return result.RareNameGbidsCount; }
+      }
+      public int GetRareNameGbids(int index) {
+        return result.GetRareNameGbids(index);
+      }
+      public Builder SetRareNameGbids(int index, int value) {
+        PrepareBuilder();
+        result.rareNameGbids_[index] = value;
+        return this;
+      }
+      public Builder AddRareNameGbids(int value) {
+        PrepareBuilder();
+        result.rareNameGbids_.Add(value);
+        return this;
+      }
+      public Builder AddRangeRareNameGbids(scg::IEnumerable<int> values) {
+        PrepareBuilder();
+        result.rareNameGbids_.Add(values);
+        return this;
+      }
+      public Builder ClearRareNameGbids() {
+        PrepareBuilder();
+        result.rareNameGbids_.Clear();
+        return this;
+      }
+    }
+    static KillerInfo() {
+      object.ReferenceEquals(global::D3.Profile.Profile.Descriptor, null);
+    }
+  }
+  
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+  [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+  [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ProtoGen", "2.4.1.473")]
   public sealed partial class HeroProfile : pb::GeneratedMessage<HeroProfile, HeroProfile.Builder> {
     private HeroProfile() { }
     private static readonly HeroProfile defaultInstance = new HeroProfile().MakeReadOnly();
-    private static readonly string[] _heroProfileFieldNames = new string[] { "armor", "attack", "create_time", "crit_chance", "damage_increase", "damage_reduction", "death_time", "defense", "dexterity", "dps", "elites_killed", "epitaph", "equipment", "gold_collected", "hardcore", "hero_id", "highest_difficulty", "highest_level", "intelligence", "kill_location", "killer", "life", "monsters_killed", "precision", "resist_arcane", "resist_cold", "resist_fire", "resist_lightning", "resist_poison", "sno_active_skills", "sno_traits", "strength", "vitality" };
-    private static readonly uint[] _heroProfileFieldTags = new uint[] { 96, 64, 48, 229, 221, 237, 176, 80, 256, 109, 16, 202, 154, 24, 56, 210, 40, 32, 264, 194, 186, 240, 8, 72, 112, 144, 120, 128, 136, 162, 170, 248, 88 };
+    private static readonly string[] _heroProfileFieldNames = new string[] { "armor", "create_time", "crit_chance", "damage_increase", "damage_reduction", "death_time", "dexterity", "dps", "elites_killed", "equipment", "gold_collected", "hardcore", "hero_id", "highest_difficulty", "highest_level", "intelligence", "killer_info", "life", "monsters_killed", "resist_arcane", "resist_cold", "resist_fire", "resist_lightning", "resist_poison", "sno_active_skills", "sno_kill_location", "sno_traits", "strength", "vitality" };
+    private static readonly uint[] _heroProfileFieldTags = new uint[] { 96, 48, 237, 229, 245, 176, 72, 109, 16, 154, 24, 56, 218, 40, 32, 80, 186, 248, 8, 112, 144, 120, 128, 136, 162, 192, 170, 64, 88 };
     public static HeroProfile DefaultInstance {
       get { return defaultInstance; }
     }
@@ -1500,37 +1882,7 @@ namespace D3.Profile {
       get { return hardcore_; }
     }
     
-    public const int AttackFieldNumber = 8;
-    private bool hasAttack;
-    private uint attack_;
-    public bool HasAttack {
-      get { return hasAttack; }
-    }
-    public uint Attack {
-      get { return attack_; }
-    }
-    
-    public const int PrecisionFieldNumber = 9;
-    private bool hasPrecision;
-    private uint precision_;
-    public bool HasPrecision {
-      get { return hasPrecision; }
-    }
-    public uint Precision {
-      get { return precision_; }
-    }
-    
-    public const int DefenseFieldNumber = 10;
-    private bool hasDefense;
-    private uint defense_;
-    public bool HasDefense {
-      get { return hasDefense; }
-    }
-    public uint Defense {
-      get { return defense_; }
-    }
-    
-    public const int StrengthFieldNumber = 31;
+    public const int StrengthFieldNumber = 8;
     private bool hasStrength;
     private uint strength_;
     public bool HasStrength {
@@ -1540,7 +1892,7 @@ namespace D3.Profile {
       get { return strength_; }
     }
     
-    public const int DexterityFieldNumber = 32;
+    public const int DexterityFieldNumber = 9;
     private bool hasDexterity;
     private uint dexterity_;
     public bool HasDexterity {
@@ -1550,7 +1902,7 @@ namespace D3.Profile {
       get { return dexterity_; }
     }
     
-    public const int IntelligenceFieldNumber = 33;
+    public const int IntelligenceFieldNumber = 10;
     private bool hasIntelligence;
     private uint intelligence_;
     public bool HasIntelligence {
@@ -1680,37 +2032,27 @@ namespace D3.Profile {
       get { return deathTime_; }
     }
     
-    public const int KillerFieldNumber = 23;
-    private bool hasKiller;
-    private global::D3.GameBalance.Handle killer_;
-    public bool HasKiller {
-      get { return hasKiller; }
+    public const int KillerInfoFieldNumber = 23;
+    private bool hasKillerInfo;
+    private global::D3.Profile.KillerInfo killerInfo_;
+    public bool HasKillerInfo {
+      get { return hasKillerInfo; }
     }
-    public global::D3.GameBalance.Handle Killer {
-      get { return killer_ ?? global::D3.GameBalance.Handle.DefaultInstance; }
-    }
-    
-    public const int KillLocationFieldNumber = 24;
-    private bool hasKillLocation;
-    private global::D3.GameBalance.Handle killLocation_;
-    public bool HasKillLocation {
-      get { return hasKillLocation; }
-    }
-    public global::D3.GameBalance.Handle KillLocation {
-      get { return killLocation_ ?? global::D3.GameBalance.Handle.DefaultInstance; }
+    public global::D3.Profile.KillerInfo KillerInfo {
+      get { return killerInfo_ ?? global::D3.Profile.KillerInfo.DefaultInstance; }
     }
     
-    public const int EpitaphFieldNumber = 25;
-    private bool hasEpitaph;
-    private string epitaph_ = "";
-    public bool HasEpitaph {
-      get { return hasEpitaph; }
+    public const int SnoKillLocationFieldNumber = 24;
+    private bool hasSnoKillLocation;
+    private uint snoKillLocation_;
+    public bool HasSnoKillLocation {
+      get { return hasSnoKillLocation; }
     }
-    public string Epitaph {
-      get { return epitaph_; }
+    public uint SnoKillLocation {
+      get { return snoKillLocation_; }
     }
     
-    public const int HeroIdFieldNumber = 26;
+    public const int HeroIdFieldNumber = 27;
     private bool hasHeroId;
     private global::D3.OnlineService.EntityId heroId_;
     public bool HasHeroId {
@@ -1720,7 +2062,7 @@ namespace D3.Profile {
       get { return heroId_ ?? global::D3.OnlineService.EntityId.DefaultInstance; }
     }
     
-    public const int DamageIncreaseFieldNumber = 27;
+    public const int DamageIncreaseFieldNumber = 28;
     private bool hasDamageIncrease;
     private float damageIncrease_;
     public bool HasDamageIncrease {
@@ -1730,7 +2072,7 @@ namespace D3.Profile {
       get { return damageIncrease_; }
     }
     
-    public const int CritChanceFieldNumber = 28;
+    public const int CritChanceFieldNumber = 29;
     private bool hasCritChance;
     private float critChance_;
     public bool HasCritChance {
@@ -1740,7 +2082,7 @@ namespace D3.Profile {
       get { return critChance_; }
     }
     
-    public const int DamageReductionFieldNumber = 29;
+    public const int DamageReductionFieldNumber = 30;
     private bool hasDamageReduction;
     private float damageReduction_;
     public bool HasDamageReduction {
@@ -1750,7 +2092,7 @@ namespace D3.Profile {
       get { return damageReduction_; }
     }
     
-    public const int LifeFieldNumber = 30;
+    public const int LifeFieldNumber = 31;
     private bool hasLife;
     private uint life_;
     public bool HasLife {
@@ -1768,12 +2110,6 @@ namespace D3.Profile {
         if (HasSnoActiveSkills) {
           if (!SnoActiveSkills.IsInitialized) return false;
         }
-        if (HasKiller) {
-          if (!Killer.IsInitialized) return false;
-        }
-        if (HasKillLocation) {
-          if (!KillLocation.IsInitialized) return false;
-        }
         if (HasHeroId) {
           if (!HeroId.IsInitialized) return false;
         }
@@ -1785,103 +2121,91 @@ namespace D3.Profile {
       int size = SerializedSize;
       string[] field_names = _heroProfileFieldNames;
       if (hasMonstersKilled) {
-        output.WriteUInt64(1, field_names[22], MonstersKilled);
+        output.WriteUInt64(1, field_names[18], MonstersKilled);
       }
       if (hasElitesKilled) {
-        output.WriteUInt64(2, field_names[10], ElitesKilled);
+        output.WriteUInt64(2, field_names[8], ElitesKilled);
       }
       if (hasGoldCollected) {
-        output.WriteUInt64(3, field_names[13], GoldCollected);
+        output.WriteUInt64(3, field_names[10], GoldCollected);
       }
       if (hasHighestLevel) {
-        output.WriteUInt32(4, field_names[17], HighestLevel);
+        output.WriteUInt32(4, field_names[14], HighestLevel);
       }
       if (hasHighestDifficulty) {
-        output.WriteUInt32(5, field_names[16], HighestDifficulty);
+        output.WriteUInt32(5, field_names[13], HighestDifficulty);
       }
       if (hasCreateTime) {
-        output.WriteUInt32(6, field_names[2], CreateTime);
+        output.WriteUInt32(6, field_names[1], CreateTime);
       }
       if (hasHardcore) {
-        output.WriteBool(7, field_names[14], Hardcore);
+        output.WriteBool(7, field_names[11], Hardcore);
       }
-      if (hasAttack) {
-        output.WriteUInt32(8, field_names[1], Attack);
+      if (hasStrength) {
+        output.WriteUInt32(8, field_names[27], Strength);
       }
-      if (hasPrecision) {
-        output.WriteUInt32(9, field_names[23], Precision);
+      if (hasDexterity) {
+        output.WriteUInt32(9, field_names[6], Dexterity);
       }
-      if (hasDefense) {
-        output.WriteUInt32(10, field_names[7], Defense);
+      if (hasIntelligence) {
+        output.WriteUInt32(10, field_names[15], Intelligence);
       }
       if (hasVitality) {
-        output.WriteUInt32(11, field_names[32], Vitality);
+        output.WriteUInt32(11, field_names[28], Vitality);
       }
       if (hasArmor) {
         output.WriteUInt32(12, field_names[0], Armor);
       }
       if (hasDps) {
-        output.WriteFloat(13, field_names[9], Dps);
+        output.WriteFloat(13, field_names[7], Dps);
       }
       if (hasResistArcane) {
-        output.WriteUInt32(14, field_names[24], ResistArcane);
+        output.WriteUInt32(14, field_names[19], ResistArcane);
       }
       if (hasResistFire) {
-        output.WriteUInt32(15, field_names[26], ResistFire);
+        output.WriteUInt32(15, field_names[21], ResistFire);
       }
       if (hasResistLightning) {
-        output.WriteUInt32(16, field_names[27], ResistLightning);
+        output.WriteUInt32(16, field_names[22], ResistLightning);
       }
       if (hasResistPoison) {
-        output.WriteUInt32(17, field_names[28], ResistPoison);
+        output.WriteUInt32(17, field_names[23], ResistPoison);
       }
       if (hasResistCold) {
-        output.WriteUInt32(18, field_names[25], ResistCold);
+        output.WriteUInt32(18, field_names[20], ResistCold);
       }
       if (hasEquipment) {
-        output.WriteMessage(19, field_names[12], Equipment);
+        output.WriteMessage(19, field_names[9], Equipment);
       }
       if (hasSnoActiveSkills) {
-        output.WriteMessage(20, field_names[29], SnoActiveSkills);
+        output.WriteMessage(20, field_names[24], SnoActiveSkills);
       }
       if (hasSnoTraits) {
-        output.WriteMessage(21, field_names[30], SnoTraits);
+        output.WriteMessage(21, field_names[26], SnoTraits);
       }
       if (hasDeathTime) {
-        output.WriteUInt32(22, field_names[6], DeathTime);
+        output.WriteUInt32(22, field_names[5], DeathTime);
       }
-      if (hasKiller) {
-        output.WriteMessage(23, field_names[20], Killer);
+      if (hasKillerInfo) {
+        output.WriteMessage(23, field_names[16], KillerInfo);
       }
-      if (hasKillLocation) {
-        output.WriteMessage(24, field_names[19], KillLocation);
-      }
-      if (hasEpitaph) {
-        output.WriteString(25, field_names[11], Epitaph);
+      if (hasSnoKillLocation) {
+        output.WriteUInt32(24, field_names[25], SnoKillLocation);
       }
       if (hasHeroId) {
-        output.WriteMessage(26, field_names[15], HeroId);
+        output.WriteMessage(27, field_names[12], HeroId);
       }
       if (hasDamageIncrease) {
-        output.WriteFloat(27, field_names[4], DamageIncrease);
+        output.WriteFloat(28, field_names[3], DamageIncrease);
       }
       if (hasCritChance) {
-        output.WriteFloat(28, field_names[3], CritChance);
+        output.WriteFloat(29, field_names[2], CritChance);
       }
       if (hasDamageReduction) {
-        output.WriteFloat(29, field_names[5], DamageReduction);
+        output.WriteFloat(30, field_names[4], DamageReduction);
       }
       if (hasLife) {
-        output.WriteUInt32(30, field_names[21], Life);
-      }
-      if (hasStrength) {
-        output.WriteUInt32(31, field_names[31], Strength);
-      }
-      if (hasDexterity) {
-        output.WriteUInt32(32, field_names[8], Dexterity);
-      }
-      if (hasIntelligence) {
-        output.WriteUInt32(33, field_names[18], Intelligence);
+        output.WriteUInt32(31, field_names[17], Life);
       }
       UnknownFields.WriteTo(output);
     }
@@ -1914,23 +2238,14 @@ namespace D3.Profile {
         if (hasHardcore) {
           size += pb::CodedOutputStream.ComputeBoolSize(7, Hardcore);
         }
-        if (hasAttack) {
-          size += pb::CodedOutputStream.ComputeUInt32Size(8, Attack);
-        }
-        if (hasPrecision) {
-          size += pb::CodedOutputStream.ComputeUInt32Size(9, Precision);
-        }
-        if (hasDefense) {
-          size += pb::CodedOutputStream.ComputeUInt32Size(10, Defense);
-        }
         if (hasStrength) {
-          size += pb::CodedOutputStream.ComputeUInt32Size(31, Strength);
+          size += pb::CodedOutputStream.ComputeUInt32Size(8, Strength);
         }
         if (hasDexterity) {
-          size += pb::CodedOutputStream.ComputeUInt32Size(32, Dexterity);
+          size += pb::CodedOutputStream.ComputeUInt32Size(9, Dexterity);
         }
         if (hasIntelligence) {
-          size += pb::CodedOutputStream.ComputeUInt32Size(33, Intelligence);
+          size += pb::CodedOutputStream.ComputeUInt32Size(10, Intelligence);
         }
         if (hasVitality) {
           size += pb::CodedOutputStream.ComputeUInt32Size(11, Vitality);
@@ -1968,29 +2283,26 @@ namespace D3.Profile {
         if (hasDeathTime) {
           size += pb::CodedOutputStream.ComputeUInt32Size(22, DeathTime);
         }
-        if (hasKiller) {
-          size += pb::CodedOutputStream.ComputeMessageSize(23, Killer);
+        if (hasKillerInfo) {
+          size += pb::CodedOutputStream.ComputeMessageSize(23, KillerInfo);
         }
-        if (hasKillLocation) {
-          size += pb::CodedOutputStream.ComputeMessageSize(24, KillLocation);
-        }
-        if (hasEpitaph) {
-          size += pb::CodedOutputStream.ComputeStringSize(25, Epitaph);
+        if (hasSnoKillLocation) {
+          size += pb::CodedOutputStream.ComputeUInt32Size(24, SnoKillLocation);
         }
         if (hasHeroId) {
-          size += pb::CodedOutputStream.ComputeMessageSize(26, HeroId);
+          size += pb::CodedOutputStream.ComputeMessageSize(27, HeroId);
         }
         if (hasDamageIncrease) {
-          size += pb::CodedOutputStream.ComputeFloatSize(27, DamageIncrease);
+          size += pb::CodedOutputStream.ComputeFloatSize(28, DamageIncrease);
         }
         if (hasCritChance) {
-          size += pb::CodedOutputStream.ComputeFloatSize(28, CritChance);
+          size += pb::CodedOutputStream.ComputeFloatSize(29, CritChance);
         }
         if (hasDamageReduction) {
-          size += pb::CodedOutputStream.ComputeFloatSize(29, DamageReduction);
+          size += pb::CodedOutputStream.ComputeFloatSize(30, DamageReduction);
         }
         if (hasLife) {
-          size += pb::CodedOutputStream.ComputeUInt32Size(30, Life);
+          size += pb::CodedOutputStream.ComputeUInt32Size(31, Life);
         }
         size += UnknownFields.SerializedSize;
         memoizedSerializedSize = size;
@@ -2139,15 +2451,6 @@ namespace D3.Profile {
         if (other.HasHardcore) {
           Hardcore = other.Hardcore;
         }
-        if (other.HasAttack) {
-          Attack = other.Attack;
-        }
-        if (other.HasPrecision) {
-          Precision = other.Precision;
-        }
-        if (other.HasDefense) {
-          Defense = other.Defense;
-        }
         if (other.HasStrength) {
           Strength = other.Strength;
         }
@@ -2193,14 +2496,11 @@ namespace D3.Profile {
         if (other.HasDeathTime) {
           DeathTime = other.DeathTime;
         }
-        if (other.HasKiller) {
-          MergeKiller(other.Killer);
+        if (other.HasKillerInfo) {
+          MergeKillerInfo(other.KillerInfo);
         }
-        if (other.HasKillLocation) {
-          MergeKillLocation(other.KillLocation);
-        }
-        if (other.HasEpitaph) {
-          Epitaph = other.Epitaph;
+        if (other.HasSnoKillLocation) {
+          SnoKillLocation = other.SnoKillLocation;
         }
         if (other.HasHeroId) {
           MergeHeroId(other.HeroId);
@@ -2289,15 +2589,15 @@ namespace D3.Profile {
               break;
             }
             case 64: {
-              result.hasAttack = input.ReadUInt32(ref result.attack_);
+              result.hasStrength = input.ReadUInt32(ref result.strength_);
               break;
             }
             case 72: {
-              result.hasPrecision = input.ReadUInt32(ref result.precision_);
+              result.hasDexterity = input.ReadUInt32(ref result.dexterity_);
               break;
             }
             case 80: {
-              result.hasDefense = input.ReadUInt32(ref result.defense_);
+              result.hasIntelligence = input.ReadUInt32(ref result.intelligence_);
               break;
             }
             case 88: {
@@ -2364,28 +2664,19 @@ namespace D3.Profile {
               break;
             }
             case 186: {
-              global::D3.GameBalance.Handle.Builder subBuilder = global::D3.GameBalance.Handle.CreateBuilder();
-              if (result.hasKiller) {
-                subBuilder.MergeFrom(Killer);
+              global::D3.Profile.KillerInfo.Builder subBuilder = global::D3.Profile.KillerInfo.CreateBuilder();
+              if (result.hasKillerInfo) {
+                subBuilder.MergeFrom(KillerInfo);
               }
               input.ReadMessage(subBuilder, extensionRegistry);
-              Killer = subBuilder.BuildPartial();
+              KillerInfo = subBuilder.BuildPartial();
               break;
             }
-            case 194: {
-              global::D3.GameBalance.Handle.Builder subBuilder = global::D3.GameBalance.Handle.CreateBuilder();
-              if (result.hasKillLocation) {
-                subBuilder.MergeFrom(KillLocation);
-              }
-              input.ReadMessage(subBuilder, extensionRegistry);
-              KillLocation = subBuilder.BuildPartial();
+            case 192: {
+              result.hasSnoKillLocation = input.ReadUInt32(ref result.snoKillLocation_);
               break;
             }
-            case 202: {
-              result.hasEpitaph = input.ReadString(ref result.epitaph_);
-              break;
-            }
-            case 210: {
+            case 218: {
               global::D3.OnlineService.EntityId.Builder subBuilder = global::D3.OnlineService.EntityId.CreateBuilder();
               if (result.hasHeroId) {
                 subBuilder.MergeFrom(HeroId);
@@ -2394,32 +2685,20 @@ namespace D3.Profile {
               HeroId = subBuilder.BuildPartial();
               break;
             }
-            case 221: {
+            case 229: {
               result.hasDamageIncrease = input.ReadFloat(ref result.damageIncrease_);
               break;
             }
-            case 229: {
+            case 237: {
               result.hasCritChance = input.ReadFloat(ref result.critChance_);
               break;
             }
-            case 237: {
+            case 245: {
               result.hasDamageReduction = input.ReadFloat(ref result.damageReduction_);
               break;
             }
-            case 240: {
-              result.hasLife = input.ReadUInt32(ref result.life_);
-              break;
-            }
             case 248: {
-              result.hasStrength = input.ReadUInt32(ref result.strength_);
-              break;
-            }
-            case 256: {
-              result.hasDexterity = input.ReadUInt32(ref result.dexterity_);
-              break;
-            }
-            case 264: {
-              result.hasIntelligence = input.ReadUInt32(ref result.intelligence_);
+              result.hasLife = input.ReadUInt32(ref result.life_);
               break;
             }
           }
@@ -2569,66 +2848,6 @@ namespace D3.Profile {
         PrepareBuilder();
         result.hasHardcore = false;
         result.hardcore_ = false;
-        return this;
-      }
-      
-      public bool HasAttack {
-        get { return result.hasAttack; }
-      }
-      public uint Attack {
-        get { return result.Attack; }
-        set { SetAttack(value); }
-      }
-      public Builder SetAttack(uint value) {
-        PrepareBuilder();
-        result.hasAttack = true;
-        result.attack_ = value;
-        return this;
-      }
-      public Builder ClearAttack() {
-        PrepareBuilder();
-        result.hasAttack = false;
-        result.attack_ = 0;
-        return this;
-      }
-      
-      public bool HasPrecision {
-        get { return result.hasPrecision; }
-      }
-      public uint Precision {
-        get { return result.Precision; }
-        set { SetPrecision(value); }
-      }
-      public Builder SetPrecision(uint value) {
-        PrepareBuilder();
-        result.hasPrecision = true;
-        result.precision_ = value;
-        return this;
-      }
-      public Builder ClearPrecision() {
-        PrepareBuilder();
-        result.hasPrecision = false;
-        result.precision_ = 0;
-        return this;
-      }
-      
-      public bool HasDefense {
-        get { return result.hasDefense; }
-      }
-      public uint Defense {
-        get { return result.Defense; }
-        set { SetDefense(value); }
-      }
-      public Builder SetDefense(uint value) {
-        PrepareBuilder();
-        result.hasDefense = true;
-        result.defense_ = value;
-        return this;
-      }
-      public Builder ClearDefense() {
-        PrepareBuilder();
-        result.hasDefense = false;
-        result.defense_ = 0;
         return this;
       }
       
@@ -2992,104 +3211,63 @@ namespace D3.Profile {
         return this;
       }
       
-      public bool HasKiller {
-       get { return result.hasKiller; }
+      public bool HasKillerInfo {
+       get { return result.hasKillerInfo; }
       }
-      public global::D3.GameBalance.Handle Killer {
-        get { return result.Killer; }
-        set { SetKiller(value); }
+      public global::D3.Profile.KillerInfo KillerInfo {
+        get { return result.KillerInfo; }
+        set { SetKillerInfo(value); }
       }
-      public Builder SetKiller(global::D3.GameBalance.Handle value) {
+      public Builder SetKillerInfo(global::D3.Profile.KillerInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
-        result.hasKiller = true;
-        result.killer_ = value;
+        result.hasKillerInfo = true;
+        result.killerInfo_ = value;
         return this;
       }
-      public Builder SetKiller(global::D3.GameBalance.Handle.Builder builderForValue) {
+      public Builder SetKillerInfo(global::D3.Profile.KillerInfo.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
-        result.hasKiller = true;
-        result.killer_ = builderForValue.Build();
+        result.hasKillerInfo = true;
+        result.killerInfo_ = builderForValue.Build();
         return this;
       }
-      public Builder MergeKiller(global::D3.GameBalance.Handle value) {
+      public Builder MergeKillerInfo(global::D3.Profile.KillerInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
-        if (result.hasKiller &&
-            result.killer_ != global::D3.GameBalance.Handle.DefaultInstance) {
-            result.killer_ = global::D3.GameBalance.Handle.CreateBuilder(result.killer_).MergeFrom(value).BuildPartial();
+        if (result.hasKillerInfo &&
+            result.killerInfo_ != global::D3.Profile.KillerInfo.DefaultInstance) {
+            result.killerInfo_ = global::D3.Profile.KillerInfo.CreateBuilder(result.killerInfo_).MergeFrom(value).BuildPartial();
         } else {
-          result.killer_ = value;
+          result.killerInfo_ = value;
         }
-        result.hasKiller = true;
+        result.hasKillerInfo = true;
         return this;
       }
-      public Builder ClearKiller() {
+      public Builder ClearKillerInfo() {
         PrepareBuilder();
-        result.hasKiller = false;
-        result.killer_ = null;
+        result.hasKillerInfo = false;
+        result.killerInfo_ = null;
         return this;
       }
       
-      public bool HasKillLocation {
-       get { return result.hasKillLocation; }
+      public bool HasSnoKillLocation {
+        get { return result.hasSnoKillLocation; }
       }
-      public global::D3.GameBalance.Handle KillLocation {
-        get { return result.KillLocation; }
-        set { SetKillLocation(value); }
+      public uint SnoKillLocation {
+        get { return result.SnoKillLocation; }
+        set { SetSnoKillLocation(value); }
       }
-      public Builder SetKillLocation(global::D3.GameBalance.Handle value) {
-        pb::ThrowHelper.ThrowIfNull(value, "value");
+      public Builder SetSnoKillLocation(uint value) {
         PrepareBuilder();
-        result.hasKillLocation = true;
-        result.killLocation_ = value;
+        result.hasSnoKillLocation = true;
+        result.snoKillLocation_ = value;
         return this;
       }
-      public Builder SetKillLocation(global::D3.GameBalance.Handle.Builder builderForValue) {
-        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
+      public Builder ClearSnoKillLocation() {
         PrepareBuilder();
-        result.hasKillLocation = true;
-        result.killLocation_ = builderForValue.Build();
-        return this;
-      }
-      public Builder MergeKillLocation(global::D3.GameBalance.Handle value) {
-        pb::ThrowHelper.ThrowIfNull(value, "value");
-        PrepareBuilder();
-        if (result.hasKillLocation &&
-            result.killLocation_ != global::D3.GameBalance.Handle.DefaultInstance) {
-            result.killLocation_ = global::D3.GameBalance.Handle.CreateBuilder(result.killLocation_).MergeFrom(value).BuildPartial();
-        } else {
-          result.killLocation_ = value;
-        }
-        result.hasKillLocation = true;
-        return this;
-      }
-      public Builder ClearKillLocation() {
-        PrepareBuilder();
-        result.hasKillLocation = false;
-        result.killLocation_ = null;
-        return this;
-      }
-      
-      public bool HasEpitaph {
-        get { return result.hasEpitaph; }
-      }
-      public string Epitaph {
-        get { return result.Epitaph; }
-        set { SetEpitaph(value); }
-      }
-      public Builder SetEpitaph(string value) {
-        pb::ThrowHelper.ThrowIfNull(value, "value");
-        PrepareBuilder();
-        result.hasEpitaph = true;
-        result.epitaph_ = value;
-        return this;
-      }
-      public Builder ClearEpitaph() {
-        PrepareBuilder();
-        result.hasEpitaph = false;
-        result.epitaph_ = "";
+        result.hasSnoKillLocation = false;
+        result.snoKillLocation_ = 0;
         return this;
       }
       
@@ -3528,8 +3706,8 @@ namespace D3.Profile {
   public sealed partial class AccountProfile : pb::GeneratedMessage<AccountProfile, AccountProfile.Builder> {
     private AccountProfile() { }
     private static readonly AccountProfile defaultInstance = new AccountProfile().MakeReadOnly();
-    private static readonly string[] _accountProfileFieldNames = new string[] { "class_barbarian", "class_demonhunter", "class_monk", "class_witchdoctor", "class_wizard", "deprecated_achievement_showcase_0", "deprecated_achievement_showcase_1", "deprecated_achievement_showcase_2", "elites_killed", "gold_collected", "hardcore_monsters_killed", "highest_boss_difficulty_1", "highest_boss_difficulty_2", "highest_boss_difficulty_3", "highest_boss_difficulty_4", "highest_difficulty", "highest_hardcore_level", "monsters_killed" };
-    private static readonly uint[] _accountProfileFieldTags = new uint[] { 90, 98, 106, 114, 122, 128, 136, 144, 56, 64, 80, 16, 24, 32, 40, 8, 72, 48 };
+    private static readonly string[] _accountProfileFieldNames = new string[] { "class_barbarian", "class_demonhunter", "class_monk", "class_witchdoctor", "class_wizard", "elites_killed", "gold_collected", "hardcore_monsters_killed", "highest_boss_difficulty_1", "highest_boss_difficulty_2", "highest_boss_difficulty_3", "highest_boss_difficulty_4", "highest_difficulty", "highest_hardcore_level", "monsters_killed" };
+    private static readonly uint[] _accountProfileFieldTags = new uint[] { 90, 98, 106, 114, 122, 56, 64, 80, 16, 24, 32, 40, 8, 72, 48 };
     public static AccountProfile DefaultInstance {
       get { return defaultInstance; }
     }
@@ -3700,36 +3878,6 @@ namespace D3.Profile {
       get { return classWizard_ ?? global::D3.Profile.ClassInfo.DefaultInstance; }
     }
     
-    public const int DeprecatedAchievementShowcase0FieldNumber = 16;
-    private bool hasDeprecatedAchievementShowcase0;
-    private ulong deprecatedAchievementShowcase0_;
-    public bool HasDeprecatedAchievementShowcase0 {
-      get { return hasDeprecatedAchievementShowcase0; }
-    }
-    public ulong DeprecatedAchievementShowcase0 {
-      get { return deprecatedAchievementShowcase0_; }
-    }
-    
-    public const int DeprecatedAchievementShowcase1FieldNumber = 17;
-    private bool hasDeprecatedAchievementShowcase1;
-    private ulong deprecatedAchievementShowcase1_;
-    public bool HasDeprecatedAchievementShowcase1 {
-      get { return hasDeprecatedAchievementShowcase1; }
-    }
-    public ulong DeprecatedAchievementShowcase1 {
-      get { return deprecatedAchievementShowcase1_; }
-    }
-    
-    public const int DeprecatedAchievementShowcase2FieldNumber = 18;
-    private bool hasDeprecatedAchievementShowcase2;
-    private ulong deprecatedAchievementShowcase2_;
-    public bool HasDeprecatedAchievementShowcase2 {
-      get { return hasDeprecatedAchievementShowcase2; }
-    }
-    public ulong DeprecatedAchievementShowcase2 {
-      get { return deprecatedAchievementShowcase2_; }
-    }
-    
     public override bool IsInitialized {
       get {
         return true;
@@ -3740,34 +3888,34 @@ namespace D3.Profile {
       int size = SerializedSize;
       string[] field_names = _accountProfileFieldNames;
       if (hasHighestDifficulty) {
-        output.WriteUInt32(1, field_names[15], HighestDifficulty);
+        output.WriteUInt32(1, field_names[12], HighestDifficulty);
       }
       if (hasHighestBossDifficulty1) {
-        output.WriteUInt32(2, field_names[11], HighestBossDifficulty1);
+        output.WriteUInt32(2, field_names[8], HighestBossDifficulty1);
       }
       if (hasHighestBossDifficulty2) {
-        output.WriteUInt32(3, field_names[12], HighestBossDifficulty2);
+        output.WriteUInt32(3, field_names[9], HighestBossDifficulty2);
       }
       if (hasHighestBossDifficulty3) {
-        output.WriteUInt32(4, field_names[13], HighestBossDifficulty3);
+        output.WriteUInt32(4, field_names[10], HighestBossDifficulty3);
       }
       if (hasHighestBossDifficulty4) {
-        output.WriteUInt32(5, field_names[14], HighestBossDifficulty4);
+        output.WriteUInt32(5, field_names[11], HighestBossDifficulty4);
       }
       if (hasMonstersKilled) {
-        output.WriteUInt64(6, field_names[17], MonstersKilled);
+        output.WriteUInt64(6, field_names[14], MonstersKilled);
       }
       if (hasElitesKilled) {
-        output.WriteUInt64(7, field_names[8], ElitesKilled);
+        output.WriteUInt64(7, field_names[5], ElitesKilled);
       }
       if (hasGoldCollected) {
-        output.WriteUInt64(8, field_names[9], GoldCollected);
+        output.WriteUInt64(8, field_names[6], GoldCollected);
       }
       if (hasHighestHardcoreLevel) {
-        output.WriteUInt64(9, field_names[16], HighestHardcoreLevel);
+        output.WriteUInt64(9, field_names[13], HighestHardcoreLevel);
       }
       if (hasHardcoreMonstersKilled) {
-        output.WriteUInt64(10, field_names[10], HardcoreMonstersKilled);
+        output.WriteUInt64(10, field_names[7], HardcoreMonstersKilled);
       }
       if (hasClassBarbarian) {
         output.WriteMessage(11, field_names[0], ClassBarbarian);
@@ -3783,15 +3931,6 @@ namespace D3.Profile {
       }
       if (hasClassWizard) {
         output.WriteMessage(15, field_names[4], ClassWizard);
-      }
-      if (hasDeprecatedAchievementShowcase0) {
-        output.WriteUInt64(16, field_names[5], DeprecatedAchievementShowcase0);
-      }
-      if (hasDeprecatedAchievementShowcase1) {
-        output.WriteUInt64(17, field_names[6], DeprecatedAchievementShowcase1);
-      }
-      if (hasDeprecatedAchievementShowcase2) {
-        output.WriteUInt64(18, field_names[7], DeprecatedAchievementShowcase2);
       }
       UnknownFields.WriteTo(output);
     }
@@ -3847,15 +3986,6 @@ namespace D3.Profile {
         }
         if (hasClassWizard) {
           size += pb::CodedOutputStream.ComputeMessageSize(15, ClassWizard);
-        }
-        if (hasDeprecatedAchievementShowcase0) {
-          size += pb::CodedOutputStream.ComputeUInt64Size(16, DeprecatedAchievementShowcase0);
-        }
-        if (hasDeprecatedAchievementShowcase1) {
-          size += pb::CodedOutputStream.ComputeUInt64Size(17, DeprecatedAchievementShowcase1);
-        }
-        if (hasDeprecatedAchievementShowcase2) {
-          size += pb::CodedOutputStream.ComputeUInt64Size(18, DeprecatedAchievementShowcase2);
         }
         size += UnknownFields.SerializedSize;
         memoizedSerializedSize = size;
@@ -4028,15 +4158,6 @@ namespace D3.Profile {
         if (other.HasClassWizard) {
           MergeClassWizard(other.ClassWizard);
         }
-        if (other.HasDeprecatedAchievementShowcase0) {
-          DeprecatedAchievementShowcase0 = other.DeprecatedAchievementShowcase0;
-        }
-        if (other.HasDeprecatedAchievementShowcase1) {
-          DeprecatedAchievementShowcase1 = other.DeprecatedAchievementShowcase1;
-        }
-        if (other.HasDeprecatedAchievementShowcase2) {
-          DeprecatedAchievementShowcase2 = other.DeprecatedAchievementShowcase2;
-        }
         this.MergeUnknownFields(other.UnknownFields);
         return this;
       }
@@ -4163,18 +4284,6 @@ namespace D3.Profile {
               }
               input.ReadMessage(subBuilder, extensionRegistry);
               ClassWizard = subBuilder.BuildPartial();
-              break;
-            }
-            case 128: {
-              result.hasDeprecatedAchievementShowcase0 = input.ReadUInt64(ref result.deprecatedAchievementShowcase0_);
-              break;
-            }
-            case 136: {
-              result.hasDeprecatedAchievementShowcase1 = input.ReadUInt64(ref result.deprecatedAchievementShowcase1_);
-              break;
-            }
-            case 144: {
-              result.hasDeprecatedAchievementShowcase2 = input.ReadUInt64(ref result.deprecatedAchievementShowcase2_);
               break;
             }
           }
@@ -4584,66 +4693,6 @@ namespace D3.Profile {
         PrepareBuilder();
         result.hasClassWizard = false;
         result.classWizard_ = null;
-        return this;
-      }
-      
-      public bool HasDeprecatedAchievementShowcase0 {
-        get { return result.hasDeprecatedAchievementShowcase0; }
-      }
-      public ulong DeprecatedAchievementShowcase0 {
-        get { return result.DeprecatedAchievementShowcase0; }
-        set { SetDeprecatedAchievementShowcase0(value); }
-      }
-      public Builder SetDeprecatedAchievementShowcase0(ulong value) {
-        PrepareBuilder();
-        result.hasDeprecatedAchievementShowcase0 = true;
-        result.deprecatedAchievementShowcase0_ = value;
-        return this;
-      }
-      public Builder ClearDeprecatedAchievementShowcase0() {
-        PrepareBuilder();
-        result.hasDeprecatedAchievementShowcase0 = false;
-        result.deprecatedAchievementShowcase0_ = 0UL;
-        return this;
-      }
-      
-      public bool HasDeprecatedAchievementShowcase1 {
-        get { return result.hasDeprecatedAchievementShowcase1; }
-      }
-      public ulong DeprecatedAchievementShowcase1 {
-        get { return result.DeprecatedAchievementShowcase1; }
-        set { SetDeprecatedAchievementShowcase1(value); }
-      }
-      public Builder SetDeprecatedAchievementShowcase1(ulong value) {
-        PrepareBuilder();
-        result.hasDeprecatedAchievementShowcase1 = true;
-        result.deprecatedAchievementShowcase1_ = value;
-        return this;
-      }
-      public Builder ClearDeprecatedAchievementShowcase1() {
-        PrepareBuilder();
-        result.hasDeprecatedAchievementShowcase1 = false;
-        result.deprecatedAchievementShowcase1_ = 0UL;
-        return this;
-      }
-      
-      public bool HasDeprecatedAchievementShowcase2 {
-        get { return result.hasDeprecatedAchievementShowcase2; }
-      }
-      public ulong DeprecatedAchievementShowcase2 {
-        get { return result.DeprecatedAchievementShowcase2; }
-        set { SetDeprecatedAchievementShowcase2(value); }
-      }
-      public Builder SetDeprecatedAchievementShowcase2(ulong value) {
-        PrepareBuilder();
-        result.hasDeprecatedAchievementShowcase2 = true;
-        result.deprecatedAchievementShowcase2_ = value;
-        return this;
-      }
-      public Builder ClearDeprecatedAchievementShowcase2() {
-        PrepareBuilder();
-        result.hasDeprecatedAchievementShowcase2 = false;
-        result.deprecatedAchievementShowcase2_ = 0UL;
         return this;
       }
     }

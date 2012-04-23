@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright (C) 2011 mooege project
+ * Copyright (C) 2011 - 2012 mooege project - http://www.mooege.org
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -108,6 +108,10 @@ namespace Mooege.Core.GS.Common.Types.TagMap
             {
                 return key.GetValue(_tagMapEntries[key.ID]);
             }
+            set
+            {
+                _tagMapEntries[key.ID].Int = value;
+            }
         }
 
         public float this[TagKeyFloat key]
@@ -196,7 +200,7 @@ namespace Mooege.Core.GS.Common.Types.TagMap
         public ScriptFormula ScriptFormula { get; private set; }
 
         [PersistentProperty("Int")]
-        public int Int { get; private set; }
+        public int Int { get; set; }
 
         [PersistentProperty("Float")]
         public float Float { get; private set; }

@@ -12,6 +12,7 @@ using Mooege.Core.GS.Items;
 using System.Text.RegularExpressions;
 using Mooege.Core.GS.Common.Types.TagMap;
 using Mooege.Common.Logging;
+using Mooege.Common.Versions;
 
 namespace Mooege.Common.MPQ
 {
@@ -25,7 +26,7 @@ namespace Mooege.Common.MPQ
 
         public static Dictionary<int, string> TagNames;
 
-        private static string logAffix = "8350";  // current d3 build version
+        private static string logAffix = VersionInfo.MPQ.RequiredPatchVersion.ToString();  // current d3 build version
 
         static Hacks()
         {
@@ -320,7 +321,7 @@ namespace Mooege.Common.MPQ
 
         public static void OnMPQLoaded()
         {
-            DumpPowerFormulas(true);
+            DumpSNOS();
 
             Logger.Debug("OnMPQLoaded() finished!");
         }

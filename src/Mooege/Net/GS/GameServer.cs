@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright (C) 2011 mooege project
+ * Copyright (C) 2011 - 2012 mooege project - http://www.mooege.org
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -40,8 +40,10 @@ namespace Mooege.Net.GS
 
         public override void Run()
         {
-            if (!this.Listen(Config.Instance.BindIP, Config.Instance.Port)) return;
-            Logger.Info("Game-Server is listening on {0}:{1}...", Config.Instance.BindIP, Config.Instance.Port);
+            var bindIP = NetworkingConfig.Instance.EnableIPv6 ? Config.Instance.BindIPv6 : Config.Instance.BindIP;
+
+            if (!this.Listen(bindIP, Config.Instance.Port)) return;
+            Logger.Info("Game-Server is listening on {0}:{1}...", bindIP, Config.Instance.Port);
         }
     }
 }

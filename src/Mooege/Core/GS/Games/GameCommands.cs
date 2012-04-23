@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright (C) 2011 mooege project
+ * Copyright (C) 2011 - 2012 mooege project - http://www.mooege.org
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -157,11 +157,35 @@ namespace Mooege.Core.GS.Games
         }
     }
 
-    [CommandGroup("killall", "Kills monsters in range.")]
-    public class KillAllCommand : CommandGroup
+    //[CommandGroup("killall", "Kills monsters in range.")]
+    //public class KillAllCommand : CommandGroup
+    //{
+    //    [DefaultCommand]
+    //    public string KillAll(string[] @params, MooNetClient invokerClient)
+    //    {
+    //        if (invokerClient == null)
+    //            return "You can not invoke this command from console.";
+
+    //        if (invokerClient.InGameClient == null)
+    //            return "You can only invoke this command while ingame.";
+
+    //        var player = invokerClient.InGameClient.Player;
+
+    //        var monstersInRange = player.GetActorsInRange<Monster>();
+    //        foreach (var monster in monstersInRange)
+    //        {
+    //            monster.Die(player);
+    //        }
+
+    //        return string.Format("Killed {0} monsters in range.", monstersInRange.Count);
+    //    }
+    //}
+
+    [CommandGroup("levelup", "Levels your character.\nOptionally specify the number of levels: !levelup [count]")]
+    public class LevelUpCommand : CommandGroup
     {
         [DefaultCommand]
-        public string KillAll(string[] @params, MooNetClient invokerClient)
+        public string LevelUp(string[] @params, MooNetClient invokerClient)
         {
             if (invokerClient == null)
                 return "You can not invoke this command from console.";
@@ -170,48 +194,23 @@ namespace Mooege.Core.GS.Games
                 return "You can only invoke this command while ingame.";
 
             var player = invokerClient.InGameClient.Player;
+            var amount = 1;
 
-            var monstersInRange = player.GetActorsInRange<Monster>();
-            foreach (var monster in monstersInRange)
+            if (@params != null)
             {
-                    monster.Die(player);
+                if (!Int32.TryParse(@params[0], out amount))
+                    amount = 1;
             }
 
-            return string.Format("Killed {0} monsters in range.", monstersInRange.Count);
+            for (int i = 0; i < amount; i++)
+            {
+                player.UpdateExp(player.Attributes[Net.GS.Message.GameAttribute.Experience_Next]);
+            }
+
+            player.Toon.GameAccount.NotifyUpdate();
+            return string.Format("New level: {0}", player.Toon.Level);
         }
     }
-
-    //[CommandGroup("levelup", "Levels your character.")]
-    //public class LevelUpCommand : CommandGroup
-    //{
-    //    [DefaultCommand]
-    //    public string LevelUp(string[] @params, MooNetClient invokerClient)
-    //    {
-    //        // TODO: does not work, should be actually refactoring Player.cs:UpdateExp() and use it. /raist.
-
-    //        if (invokerClient == null)
-    //            return "You can not invoke this command from console.";
-
-    //        if (invokerClient.InGameClient == null)
-    //            return "You can only invoke this command while ingame.";
-
-    //        var player = invokerClient.InGameClient.Player;
-    //        var amount = 1;
-
-    //        if(@params!=null)
-    //        {
-    //            if (!Int32.TryParse(@params[0], out amount))
-    //                amount = 1;
-    //        }
-
-    //        for(int i=0;i<amount;i++)
-    //        {
-    //            player.Toon.LevelUp();                
-    //        }
-
-    //        return string.Format("New level: {0}", player.Toon.Level);
-    //    }
-    //}
 
     [CommandGroup("item", "Spawns an item (with a name or type).\nUsage: item [type <type>|<name>] [amount]")]
     public class ItemCommand : CommandGroup

@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright (C) 2011 mooege project
+ * Copyright (C) 2011 - 2012 mooege project - http://www.mooege.org
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,7 +20,6 @@ using System;
 using Mooege.Common.Logging;
 using Mooege.Core.MooNet.Accounts;
 using Mooege.Core.MooNet.Helpers;
-using Mooege.Core.MooNet.Toons;
 using Mooege.Net.MooNet;
 
 // TODO: Need to do some more testing and inspection to make sure that
@@ -34,6 +33,7 @@ namespace Mooege.Core.MooNet.Services
         private static readonly Logger Logger = LogManager.CreateLogger();
         public MooNetClient Client { get; set; }
         public bnet.protocol.Header LastCallHeader { get; set; }
+        public uint Status { get; set; }
 
         public override void Subscribe(Google.ProtocolBuffers.IRpcController controller, bnet.protocol.presence.SubscribeRequest request, System.Action<bnet.protocol.NoData> done)
         {
@@ -170,5 +170,11 @@ namespace Mooege.Core.MooNet.Services
         {
             throw new NotImplementedException();
         }
+
+        public override void SubscribeNotification(Google.ProtocolBuffers.IRpcController controller, bnet.protocol.presence.SubscribeNotificationRequest request, Action<bnet.protocol.NoData> done)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

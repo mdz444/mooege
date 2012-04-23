@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright (C) 2011 mooege project
+ * Copyright (C) 2011 - 2012 mooege project - http://www.mooege.org
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,8 +20,6 @@ using System;
 using System.Collections.Generic;
 using Mooege.Core.MooNet.Helpers;
 using Google.ProtocolBuffers;
-using System.Linq;
-using System.Text;
 
 namespace Mooege.Core.MooNet.Objects
 {
@@ -48,7 +46,7 @@ namespace Mooege.Core.MooNet.Objects
 
             foreach (var id in Value)
             {
-                var Key = FieldKeyHelper.Create(FieldKeyHelper.Program.BNet, FieldKeyHelper.OriginatingClass.Account, 4, id.High);
+                var Key = FieldKeyHelper.Create(FieldKeyHelper.Program.BNet, FieldKeyHelper.OriginatingClass.Account, _fieldNumber, id.High);
                 var Field = bnet.protocol.presence.Field.CreateBuilder().SetKey(Key).SetValue(bnet.protocol.attribute.Variant.CreateBuilder().SetEntityidValue(id).Build()).Build();
                 operationList.Add(bnet.protocol.presence.FieldOperation.CreateBuilder().SetField(Field).Build());
             }

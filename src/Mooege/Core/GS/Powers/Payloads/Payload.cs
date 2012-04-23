@@ -16,32 +16,23 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-using System.Text;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Mooege.Core.GS.Actors;
 
-namespace Mooege.Net.GS.Message.Definitions.Misc
+namespace Mooege.Core.GS.Powers.Payloads
 {
-    [Message(Opcodes.NephalemAltarWindowClosedMessage)]
-    public class NephalemAltarWindowClosedMessage : GameMessage
+    public abstract class Payload
     {
+        public PowerContext Context;
+        public Actor Target;
 
-        public override void Parse(GameBitBuffer buffer)
+        public Payload(PowerContext context, Actor target)
         {
-        }
-
-        public override void Encode(GameBitBuffer buffer)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void AsText(StringBuilder b, int pad)
-        {
-            b.Append(' ', pad);
-            b.AppendLine("NephalemAltarWindowClosedMessage:");
-            b.Append(' ', pad++);
-            b.AppendLine("{");
-            b.Append(' ', --pad);
-            b.AppendLine("}");
+            this.Context = context;
+            this.Target = target;
         }
     }
 }

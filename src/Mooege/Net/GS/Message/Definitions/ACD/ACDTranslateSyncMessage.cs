@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011 mooege project
+ * Copyright (C) 2011 - 2012 mooege project - http://www.mooege.org
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,6 @@
 
 using System.Text;
 using Mooege.Core.GS.Common.Types.Math;
-using Mooege.Net.GS.Message.Fields;
 
 namespace Mooege.Net.GS.Message.Definitions.ACD
 {
@@ -28,6 +27,7 @@ namespace Mooege.Net.GS.Message.Definitions.ACD
         public int Field0;
         public Vector3D Field1;
         public bool? Field2;
+        public int? Field3;
 
         public ACDTranslateSyncMessage() : base(Opcodes.ACDTranslateSyncMessage) { }
 
@@ -40,6 +40,10 @@ namespace Mooege.Net.GS.Message.Definitions.ACD
             {
                 Field2 = buffer.ReadBool();
             }
+            if (buffer.ReadBool())
+            {
+                Field3 = buffer.ReadInt(16);
+            }
         }
 
         public override void Encode(GameBitBuffer buffer)
@@ -50,6 +54,11 @@ namespace Mooege.Net.GS.Message.Definitions.ACD
             if (Field2.HasValue)
             {
                 buffer.WriteBool(Field2.Value);
+            }
+            buffer.WriteBool(Field3.HasValue);
+            if (Field3.HasValue)
+            {
+                buffer.WriteInt(15, Field3.Value);
             }
         }
 
@@ -64,6 +73,10 @@ namespace Mooege.Net.GS.Message.Definitions.ACD
             if (Field2.HasValue)
             {
                 b.Append(' ', pad); b.AppendLine("Field2.Value: " + (Field2.Value ? "true" : "false"));
+            }
+            if (Field3.HasValue)
+            {
+                b.Append(' ', pad); b.AppendLine("Field3.Value: 0x" + Field3.Value.ToString("X8") + " (" + Field3.Value + ")");
             }
             b.Append(' ', --pad);
             b.AppendLine("}");

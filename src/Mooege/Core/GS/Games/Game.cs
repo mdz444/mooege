@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright (C) 2011 mooege project
+ * Copyright (C) 2011 - 2012 mooege project - http://www.mooege.org
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -37,7 +37,7 @@ namespace Mooege.Core.GS.Games
 {
     public class Game : IMessageConsumer
     {
-        static readonly Logger Logger = LogManager.CreateLogger();
+        private static readonly Logger Logger = LogManager.CreateLogger();
 
         /// <summary>
         /// The game id.
@@ -259,7 +259,7 @@ namespace Mooege.Core.GS.Games
             {
                 Field0 = new GameSyncedData
                             {
-                                Field0 = false,
+                                Field0 = 0x0,
                                 Field1 = 0x0,
                                 Field2 = 0x0,
                                 Field3 = 0x0,
@@ -271,7 +271,9 @@ namespace Mooege.Core.GS.Games
                             }
             });
 
-            joinedPlayer.EnterWorld(this.StartingWorld.StartingPoints.First().Position);
+            //joinedPlayer.EnterWorld(this.StartingWorld.StartingPoints.First().Position);
+            joinedPlayer.EnterWorld(this.StartingWorld.StartingPoints.Find(x => x.ActorSNO.Name == "Start_Location_Team_0").Position);
+
             joinedPlayer.InGameClient.TickingEnabled = true; // it seems bnet-servers only start ticking after player is completely in-game. /raist
         }
 

@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright (C) 2011 mooege project
+ * Copyright (C) 2011 - 2012 mooege project - http://www.mooege.org
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,10 +17,8 @@
  */
 
 using System.Collections.Generic;
-using System.Linq;
 using bnet.protocol.presence;
 using Mooege.Core.MooNet.Objects;
-using Google.ProtocolBuffers;
 
 namespace Mooege.Core.MooNet.Helpers
 {
@@ -39,8 +37,8 @@ namespace Mooege.Core.MooNet.Helpers
             Account = 1,
             GameAccount = 2,
             Hero = 3,
-            Channel = 4,
-            Unknown = 5
+            Party = 4,
+            GameSession = 5
         }
 
         public static FieldKey Create(Program program, OriginatingClass originatingClass, uint field, ulong index)
