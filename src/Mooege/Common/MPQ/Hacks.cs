@@ -321,7 +321,8 @@ namespace Mooege.Common.MPQ
 
         public static void OnMPQLoaded()
         {
-            DumpSNOS();
+            DumpPowerFormulas(true);
+            DumpPowerTagmaps();
 
             Logger.Debug("OnMPQLoaded() finished!");
         }
